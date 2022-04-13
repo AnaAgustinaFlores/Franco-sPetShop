@@ -1,0 +1,28 @@
+*{
+    margin: 0;padding: 0;box-sizing: border-box;
+}
+body{
+    height: 100vh;
+}
+header{
+    height:15%;
+    background-color: blue;
+}
+nav{
+    height: 80%;
+    background-color: green;
+}
+nav a{
+
+text-decoration: none;
+color: black;
+}
+
+main{
+    min-height: 70%;
+    background-color: aqua;
+}
+footer{
+    height: 15%;
+    background-color: red;
+}
