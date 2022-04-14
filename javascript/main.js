@@ -1,35 +1,30 @@
 Vue.createApp({
-    data() {
-      return {
-          productos: [],
-          juguetes: [],
-          medicamentos:[],
-          mostrarSaludo: false,
-          carrito: [],
-          checkBoxesMascotas: [],
-          mostrarCarrito: false
-      }
-    },
+  data() {
+    return {
+        productos: [],
+        juguetes: [],
+        medicamentos:[],
+        mostrarSaludo: false,
+        carrito: [],
+        checkBoxesMascotas: [],
+        mostrarCarrito: false
+    }
+  },
 
-    created(){
-        fetch("https://apipetshop.herokuapp.com/api/articulos")
-            .then(response => response.json())
-            .then(data => {
-                this.productos = data.response
-                console.log(this.productos)
-
-                this.juguetes = this.productos.filter(producto => producto.tipo.includes("Juguete"))
-
-
-                this.medicamentos = this.productos.filter(producto => producto.tipo.includes("Medicamento"))
-
-            })
-   
+  created(){
+      fetch("https://apipetshop.herokuapp.com/api/articulos")
+          .then(response => response.json())
+          .then(data => {
+            this.productos = data.response
+            this.juguetes = this.productos.filter(producto => producto.tipo.includes("Juguete"))
+            this.medicamentos = this.productos.filter(producto => producto.tipo.includes("Medicamento"))
+      })
+  },
+    
 
 
-        },
+  methods: {
 
- methods: {
     mostrarCartelito(){
       this.mostrarSaludo = true
     },
@@ -47,12 +42,14 @@ Vue.createApp({
       if(!this.carrito.includes(producto)){
         this.carrito.push(producto)
       }
+    },
+    restarStock(){
+      this.carrito.forEach(producto => producto.stock)
     }
   },
-    computed:{
+  computed:{
 
-    },
-    
+  },   
 }).mount('#app')
 
   
