@@ -25,9 +25,7 @@ Vue.createApp({
 
         },
 
-
     methods:{
-
     },
 
     computed:{
