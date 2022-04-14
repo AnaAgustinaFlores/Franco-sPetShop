@@ -19,6 +19,7 @@ nav a{
 }
 
 main{
+
     min-height: 65%;
     background-color: red;
 }
@@ -26,6 +27,18 @@ main{
 footer{
 
     background-color: red;
+
+}
+
+.card-title {
+    font-size: 15px;
+}
+
+.card{
+    background-color: rgb(144, 12, 63 );
+    color: white;
+}
+
     height: 23%;
     width: 100vw;
     padding: 1rem 2rem;
@@ -88,4 +101,5 @@ footer p {
 .container {
     width: 100vh;
 }
+
 
