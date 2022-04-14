@@ -24,15 +24,22 @@
   </header>
   <main>
     <div id="app">
-      <div class="d-flex justify-content-center mt-3 mb-3">
-        <div class="d-flex justify-content-center row gap-3 w-75">
-        <div class="card " style="width: 20rem; height: 32rem" v-for="medicamento in medicamentos">
-          <img v-bind:src="medicamento.imagen" class="card-img-top d-flex align-self-center" alt="...">
-          <div class="card-body d-flex justify-content-center flex-column" >
-            <h5 class="card-title far">{{medicamento.nombre}}</h5>
-            <p class="cart-text">$ {{medicamento.precio}}</p>
-            <p class="card-text">{{medicamento.descripcion}}</p>
-            <a href="#" class="btn btn-primary btn-sm">Agregar al carrito</a>
+      <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-between row gap-3 w-75">
+        <div class="card" style="width: 302px; height: 500px" v-for="medicamento in medicamentos">
+          <img v-bind:src="medicamento.imagen" class="card-img-top align-self-center" style="width: 300px; height: 300px;" alt="...">
+          <div class="card-body d-flex justify-content-between align-items-center flex-column"  >
+            <h5 class="card-title" >{{medicamento.nombre}}</h5>
+            <p class="card-text">Precio: ${{medicamento.precio}}</p>
+            <div class="btn-group dropend">
+              <button class="btn btn-secondary btn-sm dropdown-toggle bg-success" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Ver descripcion
+              </button>
+              <ul class="dropdown-menu" style="width: 300px;"> 
+                <li class="cart-text">{{medicamento.descripcion}}</li>
+              </ul>
+            </div>
+            <a href="#" class="btn btn-primary  btn-sm">Agregar al carrito</a>
           </div>
         </div>
       </div>
