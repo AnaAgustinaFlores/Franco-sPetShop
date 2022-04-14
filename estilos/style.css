@@ -5,11 +5,11 @@ body{
     height: 100vh;
 }
 header{
-    height:15vh;
+    height:15%;
     background-color: #afeeee;
 }
 nav{
-    height: 5vh;
+    height: 5%;
     /* background-color: green; */
 }
 nav a{
@@ -19,11 +19,11 @@ color: black;
 }
 
 main{
-    min-height: 70vh;
+    min-height: 70%;
     background-color: aqua;
 }
 footer{
-    height: 15vh;
+    height: 15%;
     background-color: red;
 }
 
