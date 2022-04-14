@@ -2,6 +2,8 @@ Vue.createApp({
     data() {
       return {
           productos: [],
+          juguetes: [],
+          medicamentos:[],
       }
     },
 
@@ -11,6 +13,12 @@ Vue.createApp({
             .then(data => {
                 this.productos = data.response
                 console.log(this.productos)
+
+                this.juguetes = this.productos.filter(producto => producto.tipo.includes("Juguete"))
+                console.log(this.juguetes)
+
+                this.medicamentos = this.productos.filter(producto => producto.tipo.includes("Medicamento"))
+                console.log(this.medicamentos)
             })
    
 
@@ -26,4 +34,4 @@ Vue.createApp({
 
     },
     
-})
+}).mount('#app')

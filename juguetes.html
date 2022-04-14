@@ -23,9 +23,20 @@
     </nav>
   </header>
   <main>
-    Main
     <div id="app">
-      
+      <div class="d-flex justify-content-center mt-3">
+        <div class="d-flex justify-content-center row gap-3 w-75">
+        <div class="card col-3 " style="width: 20rem; height: 32rem" v-for="juguete in juguetes">
+          <img v-bind:src="juguete.imagen" class="card-img-top d-flex align-self-center" alt="...">
+          <div class="card-body" >
+            <h5 class="card-title">{{juguete.nombre}}</h5>
+            <p class="cart-text">$ {{juguete.precio}}</p>
+            <p class="card-text">{{juguete.descripcion}}</p>
+            <a href="#" class="btn btn-primary d-flex justify-content-center">Agregar al carrito</a>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
   </main>
   <footer>Footer</footer>

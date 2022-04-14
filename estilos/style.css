@@ -26,3 +26,18 @@ footer{
     height: 15%;
     background-color: red;
 }
+
+.card-text {
+font-size: 12px;
+height: 150px;
+}
+
+.card-img-top {
+    width: 200px;
+    height: 200px;
+
+}
+
+.card-title {
+    font-size: 16px;
+}
