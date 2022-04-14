@@ -4,6 +4,10 @@ Vue.createApp({
           productos: [],
           juguetes: [],
           medicamentos:[],
+          mostrarSaludo: false,
+          carrito: [],
+          checkBoxesMascotas: [],
+          mostrarCarrito: false
       }
     },
 
@@ -15,21 +19,40 @@ Vue.createApp({
                 console.log(this.productos)
 
                 this.juguetes = this.productos.filter(producto => producto.tipo.includes("Juguete"))
-                console.log(this.juguetes)
+
 
                 this.medicamentos = this.productos.filter(producto => producto.tipo.includes("Medicamento"))
-                console.log(this.medicamentos)
+
             })
    
 
 
         },
 
-    methods:{
+ methods: {
+    mostrarCartelito(){
+      this.mostrarSaludo = true
     },
-
+    mostrarFormulario(){
+      this.mostrarSaludo = false
+    },
+    mostrarCarritoDeCompras(){
+      this.mostrarCarrito = true
+    },
+    seguirComprando(){
+      this.mostrarCarrito = false
+    },
+    aniadirACarrito(producto){
+      
+      if(!this.carrito.includes(producto)){
+        this.carrito.push(producto)
+      }
+    }
+  },
     computed:{
 
     },
     
 }).mount('#app')
+
+  
