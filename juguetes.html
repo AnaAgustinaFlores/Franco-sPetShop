@@ -55,8 +55,50 @@
     </div>
 </header>
   <main>
-    Main
+    
     <div id="app">
+
+      <!-- <div>
+        <button class="btn btn-primary" v-on:click="mostrarCarritoDeCompras">Carrito</button>
+      </div>
+      <div class="row row-cols-1 row-cols-md-3 g-4" v-if="mostrarCarrito">
+        <div v-if="carrito.length == 0">
+          <p>carrito vacio</p>
+          <button class="btn btn-primary" v-on:click="seguirComprando">Seguir comprando</button>
+        </div>
+        <div class="col" v-for="producto in carrito" v-else>
+          <div class="card h-100">
+            <img :src="producto.imagen" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{producto.nombre}}</h5>
+              <p class="card-text">{{producto.descripcion}}</p>
+            </div>
+            <div class="card-footer">
+              <p class="card-text">{{producto.precio}}</p>
+              <button class="btn btn-primary">Comprar</button>
+              <button class="btn btn-primary" v-on:click="seguirComprando">Seguir comprando</button>
+            </div>
+          </div>
+        </div> 
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-3 g-4" v-else>
+        <div class="col" v-for="juguete in juguetes">
+          <div class="card h-100">
+            <img :src="juguete.imagen" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{juguete.nombre}}</h5>
+              <p class="card-text">{{juguete.descripcion}}</p>
+            </div>
+            <div class="card-footer">
+              <p class="card-text">{{juguete.precio}}</p>
+              <button class="btn btn-primary" v-on:click="aniadirACarrito(juguete)">Aniadir</button>
+            </div>
+          </div>
+        </div> 
+      </div> -->
+
+
 
       <div id="carrusel">
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -111,6 +153,7 @@
 
     </div>
       
+
     </div>
   </main>
   <footer class="d-flex row d-wrap justify-content-between align-items-start">    
@@ -136,5 +179,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
   crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="./javascript/main.js"></script>
 </body>
 </html>
