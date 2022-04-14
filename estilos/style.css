@@ -18,10 +18,15 @@ nav a{
     color: black;
 }
 
+#fondo{
+    background-image: url(../images/fondoMascotas.jpeg);
+    background-size: cover;
+}
+
 main{
 
     min-height: 65%;
-    background-color: red;
+    /* background-color: red; */
 }
 
 

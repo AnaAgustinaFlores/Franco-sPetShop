@@ -1,58 +1,57 @@
 Vue.createApp({
-    data() {
-      return {
-          productos: [],
-          juguetes: [],
-          medicamentos:[],
-          mostrarSaludo: false,
-          carrito: [],
-          checkBoxesMascotas: [],
-          mostrarCarrito: false
-      }
-    },
+  data() {
+    return {
+      productos: [],
+      juguetes: [],
+      medicamentos: [],
+      mostrarSaludo: false,
+      carrito: [],
+      checkBoxesMascotas: [],
+      mostrarCarrito: false
+    }
+  },
 
-    created(){
-        fetch("https://apipetshop.herokuapp.com/api/articulos")
-            .then(response => response.json())
-            .then(data => {
-                this.productos = data.response
-                console.log(this.productos)
+  created() {
+    fetch("https://apipetshop.herokuapp.com/api/articulos")
+      .then(response => response.json())
+      .then(data => {
+        this.productos = data.response
+        console.log(this.productos)
 
-                this.juguetes = this.productos.filter(producto => producto.tipo.includes("Juguete"))
-
-
-                this.medicamentos = this.productos.filter(producto => producto.tipo.includes("Medicamento"))
-
-            })
-   
+        this.juguetes = this.productos.filter(producto => producto.tipo.includes("Juguete"))
 
 
-        },
+        this.medicamentos = this.productos.filter(producto => producto.tipo.includes("Medicamento"))
 
- methods: {
-    mostrarCartelito(){
+      })
+
+
+
+  },
+
+  methods: {
+    mostrarCartelito() {
       this.mostrarSaludo = true
     },
-    mostrarFormulario(){
+    mostrarFormulario() {
       this.mostrarSaludo = false
     },
-    mostrarCarritoDeCompras(){
+    mostrarCarritoDeCompras() {
       this.mostrarCarrito = true
     },
-    seguirComprando(){
+    seguirComprando() {
       this.mostrarCarrito = false
     },
-    aniadirACarrito(producto){
-      
-      if(!this.carrito.includes(producto)){
+    aniadirACarrito(producto) {
+
+      if (!this.carrito.includes(producto)) {
         this.carrito.push(producto)
       }
     }
   },
-    computed:{
+  computed: {
 
-    },
-    
+  },
+
 }).mount('#app')
 
-  
