@@ -38,13 +38,20 @@ Vue.createApp({
       this.mostrarCarrito = false
     },
     aniadirACarrito(producto){
-      
-      if(!this.carrito.includes(producto)){
+      if(!this.carrito.includes(producto) && producto.stock > 0){
+        console.log(producto.stock)
+        producto.stock -= 1
         this.carrito.push(producto)
+        console.log(producto.stock)
+        console.log("--------")
       }
     },
-    restarStock(){
-      this.carrito.forEach(producto => producto.stock)
+    finalizarCompra(){
+      
+      this.carrito = []
+      //mover esto al boton de cerrar del modal
+      this.mostrarCarrito = false
+
     }
   },
   computed:{
