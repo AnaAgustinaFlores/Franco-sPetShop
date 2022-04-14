@@ -6,30 +6,86 @@ body{
 }
 header{
     height:15%;
-    background-color: blue;
+    background-color: #afeeee;
 }
 nav{
-    height: 80%;
-    background-color: green;
+    height: 5%;
+    /* background-color: green; */
 }
 nav a{
 
-text-decoration: none;
-color: black;
+    text-decoration: none;
+    color: black;
 }
 
 main{
-    min-height: 70%;
-    background-color: aqua;
-}
-footer{
-    height: 15%;
+    min-height: 65%;
     background-color: red;
 }
-.modal-dialog-slideout {min-height: 100%; margin: 0 0 0 auto;background: #fff;}
-.modal.fade .modal-dialog.modal-dialog-slideout {-webkit-transform: translate(100%,0) scale(1);transform: translate(100%,0) scale(1);}
-.modal.fade.show .modal-dialog.modal-dialog-slideout {-webkit-transform: translate(0,0);transform: translate(0,0);display: flex;align-items: stretch;-webkit-box-align: stretch;height: 100%;}
-.modal.fade.show .modal-dialog.modal-dialog-slideout .modal-body{overflow-y: auto;overflow-x: hidden;}
-.modal-dialog-slideout .modal-content{border: 0;}
-.modal-dialog-slideout .modal-header, .modal-dialog-slideout .modal-footer {height: 69px; display: block;} 
-.modal-dialog-slideout .modal-header h5 {float:left;}
+
+footer{
+
+    background-color: red;
+    height: 23%;
+    width: 100vw;
+    padding: 1rem 2rem;
+    background-color: #33F2C9;
+}
+
+
+
+
+
+/* Barra de Navegacion */
+.dropbtn {
+    /* background-color: #04AA6D; */
+    color: white;
+    /* padding: 16px; */
+    font-size: 16px;
+    border: none;
+    text-decoration: none;
+    padding-left: 1vw;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #04AA6D;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+
+  
+
+footer a{
+    color: black;
+    text-decoration: none;
+    margin: .5rem;
+}
+
+footer p {
+    margin-bottom: 0rem;
+}
+
+#copy-rights {
+    width: 100vw;
+    border-top: 1px black solid;
+}
+.container {
+    width: 100vh;
+}
+
