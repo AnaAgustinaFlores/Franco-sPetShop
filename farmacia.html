@@ -13,15 +13,47 @@
   <link rel="stylesheet" href="./estilos/style.css">
 </head>
 <body>
-  <header>Header
-    <nav class="d-flex justify-content-evenly align-items-center">
-        <!-- <img src="./images/imagen22.jpg" alt="logo"> -->
-        <a href="./index.html"> Inicio</a>
-        <a href="#"> Farmacia</a>
-        <a href="./juguetes.html"> Juguetes</a>
-        <a href="./contacto.html"> ✉Contacto</a>
-    </nav>
-  </header>
+  <header>
+    <div class="d-flex align-items-center h-100 justify-content-evenly">
+
+        <img class="h-50" src="./images/imagen22.jpg" alt="logo">
+        <nav class="d-flex align-items-center ">
+            <div class="dropdown">
+                <a href="./index.html" class="dropbtn">Home</a>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Farmacia</a>
+                <div class="dropdown-content">
+                    <a href="#">Antipulgas</a>
+                    <a href="#">Antiparasitario</a>
+                    <a href="#">Pipetas</a>
+                    <a href="#">Suplementos</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="./juguetes.html" class="dropbtn">Juguetes</a>
+                <div class="dropdown-content">
+                    <a href="./juguetes.html">Pelotas</a>
+                    <a href="./juguetes.html">Cuerdas</a>
+                    <a href="./juguetes.html">Bebederos</a>
+                    <a href="./juguetes.html">Frisbees</a>
+                </div>
+            </div>
+            <div>
+                <a href="./contacto.html" class="dropbtn">ContactUS</a>
+            </div>
+        </nav>
+            <div>
+
+                <h1>Franco PetShop</h1>
+            </div>
+            
+            <div>
+                <a href="mailto:francopetshop@gmail.com" target="_blank"
+                class="dropbtn">✉francopetshop@gmail.com</a>
+            </div>
+    </div>
+</header>
   <main>
     Main
     <div id="app">
