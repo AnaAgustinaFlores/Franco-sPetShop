@@ -29,7 +29,7 @@
         <div class="card col-3 " style="width: 20rem; height: 32rem" v-for="medicamento in medicamentos">
           <img v-bind:src="medicamento.imagen" class="card-img-top d-flex align-self-center" alt="...">
           <div class="card-body" >
-            <h5 class="card-title">{{medicamento.nombre}}</h5>
+            <h5 class="card-title far">{{medicamento.nombre}}</h5>
             <p class="cart-text">$ {{medicamento.precio}}</p>
             <p class="card-text">{{medicamento.descripcion}}</p>
             <a href="#" class="btn btn-primary d-flex justify-content-center">Agregar al carrito</a>
