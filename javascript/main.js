@@ -1,7 +1,12 @@
 Vue.createApp({
   data(){
     return{
-      elementos: []
+      productos: [],
+      mostrarSaludo: false,
+      juguetes: [],
+      carrito: [],
+      checkBoxesMascotas: [],
+      mostrarCarrito: false
     }
   },
   created(){
@@ -9,12 +14,31 @@ Vue.createApp({
     fetch(urlApi)
       .then(response => response.json())
       .then(data => {
-        this.elementos = data.response
-        this.elementos.forEach(elemento => console.log(elemento.tipo == "Juguete" ? elemento.nombre : ""))
+        this.productos = data.response
+        this.juguetes = this.productos.filter(producto => producto.tipo == "Juguete")
+        //this.productos.forEach(elemento => console.log(elemento.tipo == "Juguete" ? elemento.nombre : ""))
         
       })
   },
   methods: {
-    
+    mostrarCartelito(){
+      this.mostrarSaludo = true
+    },
+    mostrarFormulario(){
+      this.mostrarSaludo = false
+    },
+    mostrarCarritoDeCompras(){
+      this.mostrarCarrito = true
+    },
+    seguirComprando(){
+      this.mostrarCarrito = false
+    },
+    aniadirACarrito(producto){
+      
+      if(!this.carrito.includes(producto)){
+        this.carrito.push(producto)
+      }
+    }
   }
 }).mount('#app')
+

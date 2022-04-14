@@ -23,8 +23,47 @@
     </nav>
   </header>
   <main>
-    Main
+    
     <div id="app">
+      <!-- <div>
+        <button class="btn btn-primary" v-on:click="mostrarCarritoDeCompras">Carrito</button>
+      </div>
+      <div class="row row-cols-1 row-cols-md-3 g-4" v-if="mostrarCarrito">
+        <div v-if="carrito.length == 0">
+          <p>carrito vacio</p>
+          <button class="btn btn-primary" v-on:click="seguirComprando">Seguir comprando</button>
+        </div>
+        <div class="col" v-for="producto in carrito" v-else>
+          <div class="card h-100">
+            <img :src="producto.imagen" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{producto.nombre}}</h5>
+              <p class="card-text">{{producto.descripcion}}</p>
+            </div>
+            <div class="card-footer">
+              <p class="card-text">{{producto.precio}}</p>
+              <button class="btn btn-primary">Comprar</button>
+              <button class="btn btn-primary" v-on:click="seguirComprando">Seguir comprando</button>
+            </div>
+          </div>
+        </div> 
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-3 g-4" v-else>
+        <div class="col" v-for="juguete in juguetes">
+          <div class="card h-100">
+            <img :src="juguete.imagen" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{juguete.nombre}}</h5>
+              <p class="card-text">{{juguete.descripcion}}</p>
+            </div>
+            <div class="card-footer">
+              <p class="card-text">{{juguete.precio}}</p>
+              <button class="btn btn-primary" v-on:click="aniadirACarrito(juguete)">Aniadir</button>
+            </div>
+          </div>
+        </div> 
+      </div> -->
 
     </div>
   </main>
