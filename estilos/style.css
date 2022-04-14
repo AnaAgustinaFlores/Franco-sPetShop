@@ -24,11 +24,7 @@ main{
     background-color: red;
 }
 
-footer{
 
-    background-color: red;
-
-}
 
 .card-title {
     font-size: 15px;
@@ -38,7 +34,7 @@ footer{
     background-color: rgb(144, 12, 63 );
     color: white;
 }
-
+footer{
     height: 23%;
     width: 100vw;
     padding: 1rem 2rem;
