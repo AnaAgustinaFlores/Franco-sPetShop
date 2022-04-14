@@ -1,17 +1,37 @@
 Vue.createApp({
     data() {
       return {
-        articulos:[],
+        productos: [],
+        juguetes: [],
+        medicamentos:[],
+    }
+  },
 
-      }
-    },
-    created(){
-        fetch("https://apipetshop.herokuapp.com/api/articulos")
-        .then(respuesta => respuesta.json())
-        .then(data=> {
+  created(){
+      fetch("https://apipetshop.herokuapp.com/api/articulos")
+          .then(response => response.json())
+          .then(data => {
+              this.productos = data.response
+              console.log(this.productos)
 
-            this.articulos = data.response
+              this.juguetes = this.productos.filter(producto => producto.tipo.includes("Juguete"))
+              console.log(this.juguetes)
 
-        })
-    },
-  }).mount('#app')
+              this.medicamentos = this.productos.filter(producto => producto.tipo.includes("Medicamento"))
+              console.log(this.medicamentos)
+          })
+ 
+
+
+      },
+
+
+  methods:{
+
+  },
+
+  computed:{
+
+  },
+  
+}).mount('#app')
