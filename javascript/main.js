@@ -7,7 +7,9 @@ Vue.createApp({
           mostrarSaludo: false,
           carrito: [],
           checkBoxesMascotas: [],
-          mostrarCarrito: false
+          mostrarCarrito: false,
+          producOrdenadosMenosStock: [],
+          producMenosStock: [],
       }
     },
 
@@ -20,9 +22,16 @@ Vue.createApp({
 
                 this.juguetes = this.productos.filter(producto => producto.tipo.includes("Juguete"))
 
-
                 this.medicamentos = this.productos.filter(producto => producto.tipo.includes("Medicamento"))
 
+                this.producOrdenadosMenosStock = this.productos.sort(function(a,b){return a.stock - b.stock})
+
+                for(let i = 0; i < 4; i++){
+                  this.producMenosStock[i] = this.producOrdenadosMenosStock[i]
+                }
+
+                console.log(this.productosCardsHome)
+                
             })
    
 
@@ -47,6 +56,10 @@ Vue.createApp({
       if(!this.carrito.includes(producto)){
         this.carrito.push(producto)
       }
+    },
+
+    descontarStock(producto){
+      producto.stock = producto.stock - 1
     }
   },
     computed:{
