@@ -6,16 +6,16 @@ body{
 }
 header{
     height:15%;
-    background-color: #afeeee;
+    background-color: #2EC4B6;
+    
 }
 nav{
     height: 5%;
-    /* background-color: green; */
+    width: 45%;
 }
 nav a{
 
     text-decoration: none;
-    color: black;
 }
 
 main{
@@ -68,7 +68,7 @@ footer .titulo_footer {
 /* Barra de Navegacion */
 .dropbtn {
     /* background-color: #04AA6D; */
-    color: white;
+    color: black;
     /* padding: 16px; */
     font-size: 16px;
     border: none;
@@ -79,7 +79,7 @@ footer .titulo_footer {
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #04AA6D;
+    background-color: #cbf3f096;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -102,3 +102,26 @@ footer .titulo_footer {
 
 
 
+.offcanvas-body{
+    background-color: #2EC4B6 !important;
+}
+
+
+.logo{
+    height: 80px;
+    width: 80px;
+}
+#divmailcarrito{
+    width: 30%;
+}
+
+/* boton + - */
+#contador input{
+    width: 25px;
+    text-align: center;
+}
+#contador button{
+    width: 25px;
+    text-align: center;
+    background-color: rgb(123, 123, 234);
+}
