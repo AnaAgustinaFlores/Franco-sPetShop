@@ -35,15 +35,35 @@ main{
     color: white;
 }
 footer{
-    height: 23%;
-    width: 100vw;
+    min-height: 40%;
     padding: 1rem 2rem;
-    background-color: #33F2C9;
+    background-color: #2ec4b6;
 }
 
+footer a{
+    color: black;
+    text-decoration: none;
+    margin: 1rem .5rem;
+    cursor: pointer;
+}
 
+#copy-rights {
+    width: 100vw;
+}
 
+footer .titulo_footer {
+    font-weight: bold;
+}
 
+.btn-wsp{
+    width: 58px;
+    height: 58px;
+    bottom: 5%;
+    right: 3%;
+    background: #0df053;
+    border-radius: 50%;
+    box-shadow: 0px 1px 10px rgb(0,0,0,0.3);
+}
 
 /* Barra de Navegacion */
 .dropbtn {
@@ -80,23 +100,6 @@ footer{
 
   
 
-footer a{
-    color: black;
-    text-decoration: none;
-    margin: .5rem;
-}
-
-footer p {
-    margin-bottom: 0rem;
-}
-
-#copy-rights {
-    width: 100vw;
-    border-top: 1px black solid;
-}
-.container {
-    width: 100vh;
-}
 
 
 .offcanvas-body{
