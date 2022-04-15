@@ -149,9 +149,8 @@
                 <!-- cartel que muestra el stock, en caso de tener menos de 5 unidades, lo muestra animado para captar la atencion del publico -->
                 <button class="btn btn-primary  btn-sm" v-if="juguete.stock >= 5">{{juguete.stock}} unidades</button>
                 <button class="btn btn-primary  btn-sm" v-else> ultimas unidades!!! ({{juguete.stock}})</button>
-
                 <!-- aniade producto al carrito restandole uno a su stock (en carrito!, en productos no se actuliza el stock hasta q la compra se complete) -->
-                <button class="btn btn-primary  btn-sm" v-on:click="aniadirACarrito(juguete)">Agregar al carrito</button>
+                <button class="btn btn-primary  btn-sm" v-on:click="aniadirACarrito(juguete)" v-show="agregado == false">Agregar al carrito</button>
               </div>
             </div>
           </div>

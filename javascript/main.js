@@ -13,7 +13,10 @@ Vue.createApp({
         idDeProductosDeCarrito: [],
         checkBoxesMascotas: [],//creo q no se usa
         valor: 1,
-        count: 0
+        count: 0,
+        ordenarProductosPorMenorStock: [],
+        productosMenosStock: [],
+
 
     }
   },
@@ -26,12 +29,14 @@ Vue.createApp({
             this.juguetes = this.productos.filter(producto => producto.tipo.includes("Juguete"))
             this.medicamentos = this.productos.filter(producto => producto.tipo.includes("Medicamento"))
             this.carrito = JSON.parse(localStorage.getItem("carritoDeCompras"))!=null ? JSON.parse(localStorage.getItem("carritoDeCompras")) : []
-            
+
+            this.ordenarProductosPorMenorStock = this.productos.sort(function(a,b){return a.stock - b.stock})
+            for(let i = 0; i < 4; i++){
+              this.productosMenosStock[i] = this.ordenarProductosPorMenorStock[i]
+            }  
       })
   },
     
-
-
   methods: {
 
     mostrarCartelito(){
@@ -41,7 +46,6 @@ Vue.createApp({
       this.mostrarSaludo = false
     },
     aniadirACarrito(producto){
-      
       this.idDeProductosDeCarrito = this.carrito.map(producto => producto._id)
       if(!this.idDeProductosDeCarrito.includes(producto._id) && producto.stock > 0){
         producto.stock -= 1
@@ -49,7 +53,9 @@ Vue.createApp({
         producto.unidadesAComprar = 1
         this.carrito.push(producto)
         localStorage.setItem("carritoDeCompras", JSON.stringify(this.carrito))
+        
       }
+
     },
     finalizarCompra(){
       this.carrito.forEach(producto =>{
@@ -76,10 +82,11 @@ Vue.createApp({
       let precioTotal = 0
       this.carrito.forEach(producto => precioTotal += this.calcularSubtotal(producto))
       return precioTotal
-    }
+    },
 
   },
   computed:{
+    
 
   },   
 }).mount('#app')
