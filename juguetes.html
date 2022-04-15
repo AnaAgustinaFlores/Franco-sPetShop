@@ -15,6 +15,7 @@
 </head>
 <body>
   <div id="app">
+
     <header class="sticky-top">
       <div class="d-flex align-items-center h-100">
         <nav class="d-flex align-items-center justify-content-center">
@@ -131,6 +132,7 @@
     <main>
 
         <!-- muestra cards estaticas de compra -->
+        
         <div class="d-flex justify-content-center">
           <div class="d-flex justify-content-between row gap-3 w-75">
             <div class="card mt-5" style="width: 302px; height: 500px" v-for="juguete in juguetes">
@@ -142,10 +144,10 @@
                 </div>
                 <!-- <div class="productoAgotado d-flex justify-content-center align-items-center rounded"> Producto Agotado</div> -->
 
-                <h5 class="card-title" >{{juguete.nombre}}</h5>
+                <h5 class="card-title">{{juguete.nombre}}</h5>
                 <p class="card-text">$ {{juguete.precio}}</p>
                 <div class="btn-group dropend">
-                  <button class="btn btn-secondary btn-sm dropdown-toggle bg-success" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <button class="btn btn-secondary btn-sm dropdown-toggle bg-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Ver descripcion
                   </button>
                   <ul class="dropdown-menu" style="width: 300px;"> 
@@ -157,7 +159,11 @@
                 <button class="btn btn-primary  btn-sm" v-else> ultimas unidades!!! ({{juguete.stock}})</button> -->
 
                 <!-- aniade producto al carrito restandole uno a su stock (en carrito!, en productos no se actuliza el stock hasta q la compra se complete) -->
-                <button class="btn btn-primary  btn-sm" v-on:click="aniadirACarrito(juguete)">Agregar al carrito</button>
+                <div v-if="!juguete.estadoAgregado">
+                  <button id="botonAgregar" class="btn btn-primary  btn-sm" v-on:click="aniadirACarrito(juguete)" >Agregar al carrito 🛒</button>
+                </div>
+                <button v-else id="botonAgregado" class="btn btn-primary btn-sm" disabled>Agregado al carrito ✔</button>
+
               </div>
             </div>
           </div>

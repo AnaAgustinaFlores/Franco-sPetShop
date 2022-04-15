@@ -173,3 +173,18 @@ footer p {
       background-color: white;
     }
   }
+
+  /*  boton agregar y ver descripcion */
+ #botonAgregar{
+  background-color:#2EC4B6;
+  border-color: #04aa6d;
+}
+#botonAgregar:hover {
+ background-color:#04aa6d;
+ border-color: #2EC4B6;
+}
+
+#botonAgregado{
+ background-color:#04aa6d;
+ border-color: #2EC4B6;
+}
