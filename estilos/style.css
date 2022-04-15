@@ -11,7 +11,7 @@ header{
 }
 nav{
     height: 5%;
-    width: 45%;
+    width: 40%;
 }
 nav a{
 
@@ -126,6 +126,13 @@ footer .titulo_footer {
     background-color: rgb(123, 123, 234);
 }
 
+
+
+.logopetshop{
+    height: 100px;
+    width: 350px;
+}
+
 /* cartel animado de poco stock */
 .producto {
     color: black;
@@ -177,6 +184,7 @@ footer .titulo_footer {
     }
   }
 
+
   /*  boton agregar y ver descripcion */
  #botonAgregar{
   background-color:#2EC4B6;
@@ -191,3 +199,4 @@ footer .titulo_footer {
  background-color:#04aa6d;
  border-color: #2EC4B6;
 }
+
