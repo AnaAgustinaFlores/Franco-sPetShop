@@ -36,7 +36,6 @@ Vue.createApp({
   },
     
 
-
   methods: {
     preservarDatosAlRecargar(){
 
