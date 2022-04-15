@@ -6,16 +6,16 @@ body{
 }
 header{
     height:15%;
-    background-color: #afeeee;
+    background-color: #2EC4B6;
+    
 }
 nav{
     height: 5%;
-    /* background-color: green; */
+    width: 45%;
 }
 nav a{
 
     text-decoration: none;
-    color: black;
 }
 
 main{
@@ -35,16 +35,40 @@ main{
     color: white;
 }
 footer{
-    height: 23%;
-    width: 100vw;
+    min-height: 40%;
     padding: 1rem 2rem;
-    background-color: #33F2C9;
+    background-color: #2ec4b6;
+}
+
+footer a{
+    color: black;
+    text-decoration: none;
+    margin: 1rem .5rem;
+    cursor: pointer;
+}
+
+#copy-rights {
+    width: 100vw;
+}
+
+footer .titulo_footer {
+    font-weight: bold;
+}
+
+.btn-wsp{
+    width: 58px;
+    height: 58px;
+    bottom: 5%;
+    right: 3%;
+    background: #0df053;
+    border-radius: 50%;
+    box-shadow: 0px 1px 10px rgb(0,0,0,0.3);
 }
 
 /* Barra de Navegacion */
 .dropbtn {
     /* background-color: #04AA6D; */
-    color: white;
+    color: black;
     /* padding: 16px; */
     font-size: 16px;
     border: none;
@@ -52,45 +76,54 @@ footer{
     padding-left: 1vw;
   }
   
-.dropdown-content {
+  .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #04AA6D;
+    background-color: #cbf3f096;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-}
+  }
   
-.dropdown-content a {
+  .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-}
+  }
 
   
-.dropdown-content a:hover {background-color: #ddd;}
+  .dropdown-content a:hover {background-color: #ddd;}
   
-.dropdown:hover .dropdown-content {display: block;}
+  .dropdown:hover .dropdown-content {display: block;}
   
 
   
-footer a{
-    color: black;
-    text-decoration: none;
-    margin: .5rem;
+
+
+
+.offcanvas-body{
+    background-color: #2EC4B6 !important;
 }
 
-footer p {
-    margin-bottom: 0rem;
+
+.logo{
+    height: 80px;
+    width: 80px;
+}
+#divmailcarrito{
+    width: 30%;
 }
 
-#copy-rights {
-    width: 100vw;
-    border-top: 1px black solid;
+/* boton + - */
+#contador input{
+    width: 25px;
+    text-align: center;
 }
-.container {
-    width: 100vh;
+#contador button{
+    width: 25px;
+    text-align: center;
+    background-color: rgb(123, 123, 234);
 }
 
 

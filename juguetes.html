@@ -11,25 +11,27 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
     crossorigin="anonymous"/>
   <link rel="stylesheet" href="./estilos/style.css">
+  
 </head>
 <body>
-  <header>
-    <div class="d-flex align-items-center h-100 justify-content-evenly">
+  <div id="app">
+    <header class="sticky-top">
+      <div class="d-flex align-items-center h-100">
+        <nav class="d-flex align-items-center justify-content-center">
+            <img class="logo" src="./images/imagen22.jpg" alt="logo">
 
-        <img class="h-50" src="./images/imagen22.jpg" alt="logo">
-        <nav class="d-flex align-items-center ">
-            <div class="dropdown">
-                <a href="./index.html" class="dropbtn">Home</a>
-            </div>
-            <div class="dropdown">
-                <a href="./farmacia.html" class="dropbtn">Farmacia</a>
-                <div class="dropdown-content">
-                    <a href="./farmacia.html">Antipulgas</a>
-                    <a href="./farmacia.html">Antiparasitario</a>
-                    <a href="./farmacia.html">Pipetas</a>
-                    <a href="./farmacia.html">Suplementos</a>
-                </div>
-            </div>
+                    <div class="dropdown">
+                        <a href="./index.html" class="dropbtn">Home</a>
+                    </div>
+                    <div class="dropdown">
+                        <a href="./farmacia.html" class="dropbtn">Farmacia</a>
+                        <div class="dropdown-content">
+                            <a href="./farmacia.html">Antipulgas</a>
+                            <a href="./farmacia.html">Antiparasitario</a>
+                            <a href="./farmacia.html">Pipetas</a>
+                            <a href="./farmacia.html">Suplementos</a>
+                        </div>
+                    </div>
             <div class="dropdown">
                 <a href="#" class="dropbtn">Juguetes</a>
                 <div class="dropdown-content">
@@ -43,108 +45,160 @@
                 <a href="./contacto.html" class="dropbtn">ContactUS</a>
             </div>
         </nav>
-            <div>
+        <div>
+          <h1>Franco PetShop</h1>
+        </div>
+              
 
-                <h1>Franco PetShop</h1>
-            </div>
-            
-            <div>
-                <a href="mailto:francopetshop@gmail.com" target="_blank"
-                class="dropbtn">✉francopetshop@gmail.com</a>
-            </div>
-    </div>
-</header>
-  <main>
+        <!-- iconos mail y carrito -->
+        <div id="divmailcarrito" class="d-flex justify-content-end ">
+          <a href="mailto:francopetshop@gmail.com" target="_blank"
+          class="dropbtn"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <polyline points="3 7 12 13 21 7" />
+            </svg>
+          </a>
 
+          <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <circle cx="6" cy="19" r="2" />
+              <circle cx="17" cy="19" r="2" />
+              <path d="M17 17h-11v-14h-2" />
+              <path d="M6 5l14 1l-1 7h-13" />
+            </svg>
+          </a>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
 
-    
-    <div id="app">
-      <div class="d-flex justify-content-center">
-        <div class="d-flex justify-content-between row gap-3 w-75">
-        <div class="card mt-5" style="width: 302px; height: 500px" v-for="juguete in juguetes">
-          <img v-bind:src="juguete.imagen" class="card-img-top align-self-center" style="width: 300px; height: 300px;" alt="...">
-          <div class="card-body d-flex justify-content-between align-items-center flex-column"  >
-            <h5 class="card-title" >{{juguete.nombre}}</h5>
-            <p class="card-text">$ {{juguete.precio}}</p>
-            <div class="btn-group dropend">
-              <button class="btn btn-secondary btn-sm dropdown-toggle bg-success" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Ver descripcion
-              </button>
-              <ul class="dropdown-menu" style="width: 300px;"> 
-                <li class="cart-text">{{juguete.descripcion}}</li>
-              </ul>
-            </div>
-            <a href="#" class="btn btn-primary  btn-sm">Agregar al carrito</a>
+              <div class="offcanvas-body">
+                <!-- se puede mandar uno de los modales bonitos q indique q el carrito esta vacio,o un div mas bonito, reemplazando este div de v-if -->
+                <div v-if="carrito.length == 0">
+                  <div class="offcanvas-header">
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+                  <p>carrito vacio</p>
+                </div>
+
+                <div v-else>
+                  <div class="offcanvas-header">
+                      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+                  <table class="table table-hover">
+                    <h5 id="offcanvasRightLabel">Carrito</h5>
+                    <thead>
+                      <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Unidades</th>
+                        <th scope="col">subtotal</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="producto in carrito">
+                        <td>{{producto.nombre}}</td>
+                        <td>{{producto.precio}}</td>
+                        <td>
+                          <div id="contador" class="d-flex">
+                            <button v-on:click="disminuirUnidadesAComprar(producto)">-</button>
+                            <input type="text" :value="producto.unidadesAComprar">
+                            <button v-on:click="aumentarUnidadesAComprar(producto)">+</button>
+                          </div>
+                        </td>
+
+                        <td>{{calcularSubtotal(producto)}}</td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                  <div class="d-flex gap-3 justify-content-center align-items-baseline">
+                    <h3>Precio Total:</h3>
+                    <p class="m-0 p-0 fs-3">{{obtenerPrecioTotal()}}</p>
+                  </div>
+                  <!-- boton de Finalizar Compra -->
+                  <div class="d-flex justify-content-center align-items-center mt-1">
+                    <button class="btn btn-primary " data-bs-dismiss="offcanvas" aria-label="Close" v-on:click="finalizarCompra">Finalizar Compra</button>
+                  </div>
+
+                </div>
+
+              </div>
           </div>
         </div>
       </div>
-      </div>
-    
-      <!-- <div>
-        <button class="btn btn-primary" v-on:click="mostrarCarritoDeCompras">Carrito</button>
-      </div>
-      <div class="row row-cols-1 row-cols-md-3 g-4" v-if="mostrarCarrito">
-        <div v-if="carrito.length == 0">
-          <p>carrito vacio</p>
-          <button class="btn btn-primary" v-on:click="seguirComprando">Seguir comprando</button>
+    </header>
+
+    <main>
+
+        <!-- muestra cards estaticas de compra -->
+        <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-between row gap-3 w-75">
+            <div class="card mt-5" style="width: 302px; height: 500px" v-for="juguete in juguetes">
+              <img v-bind:src="juguete.imagen" class="card-img-top align-self-center" style="width: 300px; height: 300px;" alt="...">
+              <div class="card-body d-flex justify-content-between align-items-center flex-column"  >
+                <h5 class="card-title" >{{juguete.nombre}}</h5>
+                <p class="card-text">$ {{juguete.precio}}</p>
+                <div class="btn-group dropend">
+                  <button class="btn btn-secondary btn-sm dropdown-toggle bg-success" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Ver descripcion
+                  </button>
+                  <ul class="dropdown-menu" style="width: 300px;"> 
+                    <li class="cart-text">{{juguete.descripcion}}</li>
+                  </ul>
+                </div>
+                <!-- cartel que muestra el stock, en caso de tener menos de 5 unidades, lo muestra animado para captar la atencion del publico -->
+                <button class="btn btn-primary  btn-sm" v-if="juguete.stock >= 5">{{juguete.stock}} unidades</button>
+                <button class="btn btn-primary  btn-sm" v-else> ultimas unidades!!! ({{juguete.stock}})</button>
+
+                <!-- aniade producto al carrito restandole uno a su stock (en carrito!, en productos no se actuliza el stock hasta q la compra se complete) -->
+                <button class="btn btn-primary  btn-sm" v-on:click="aniadirACarrito(juguete)">Agregar al carrito</button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col" v-for="producto in carrito" v-else>
-          <div class="card h-100">
-            <img :src="producto.imagen" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{producto.nombre}}</h5>
-              <p class="card-text">{{producto.descripcion}}</p>
-            </div>
-            <div class="card-footer">
-              <p class="card-text">{{producto.precio}}</p>
-              <button class="btn btn-primary">Comprar</button>
-              <button class="btn btn-primary" v-on:click="seguirComprando">Seguir comprando</button>
-            </div>
-          </div>
-        </div> 
-      </div>
-
-      <div class="row row-cols-1 row-cols-md-3 g-4" v-else>
-        <div class="col" v-for="juguete in juguetes">
-          <div class="card h-100">
-            <img :src="juguete.imagen" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{juguete.nombre}}</h5>
-              <p class="card-text">{{juguete.descripcion}}</p>
-            </div>
-            <div class="card-footer">
-              <p class="card-text">{{juguete.precio}}</p>
-              <button class="btn btn-primary" v-on:click="aniadirACarrito(juguete)">Aniadir</button>
-            </div>
-          </div>
-        </div> 
-      </div> -->
-
-
-
- 
 
   </main>
-  <footer class="d-flex row d-wrap justify-content-between align-items-start">    
-    <div class="col-5">
-        <img src="./images/logo.png" alt="logo" class="col-1 img-fluid">
-        <p>¡Te esperamos en nuestro locales!</p>
-        <p>Rio de Janeiro 300 (Caballito)</p>
-    </div>
-    <div class="d-flex row col-4">
-        <a href="./farmacia.html"> Farmacia</a>
-        <a href="#"> Juguetes</a>
-        <a href="./contacto.html"> Contacto</a>
-    </div>
-    <div class="d-flex col-3">
-        <a class="fa-brands fa-instagram fa-2xl" href="https://www.instagram.com/mindhub_la/" ></a>
-        <a class="fa-brands fa-facebook fa-2xl" href="facebook.com" ></a>
-    </div>
-    <div class="d-flex col-12">
-        <p id="copy-rights">Grupo G | Challenge MindHub 2022</p>
-    </div>
-</footer>
+  <a href="https://www.instagram.com/mindhub_la/" class="btn-wsp position-fixed d-flex align-items-center justify-content-center" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+    <path d="M9 10a0.5 .5 0 0 0 1 0v-1a0.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a0.5 .5 0 0 0 0 -1h-1a0.5 .5 0 0 0 0 1" />
+  </svg></a>
+  <footer class="d-flex  flex-wrap justify-content-between align-items-start">  
+      <div class="d-flex row col-4">
+          <p class="titulo_footer">Tienda</p>
+          <a href="./farmacia.html" >Farmacia</a>
+          <a href="./juguetes.html">Juguetes</a>
+      </div> 
+      <div class="d-flex col-4 row">
+          <a href="./contacto.html" class="titulo_footer" >Contacto</a>
+          <a href="https://www.instagram.com/mindhub_la/" target="_blank" ><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-instagram" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <rect x="4" y="4" width="16" height="16" rx="4" />
+              <circle cx="12" cy="12" r="3" />
+              <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
+            </svg> Instagram</a>
+          <a href="facebook.com"  target="_blank" ><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+            </svg> Facebook</a>
+          <a  href="mailto:francopetshop@gmail.com"  target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <polyline points="3 7 12 13 21 7" />
+                </svg> francopetshop@gmail.com
+          </a>
+      </div>
+      <div class="d-flex col-4 row">
+          <p class="titulo_footer">Donde encontrarnos</p>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.6871004429263!2d-58.43257238519495!3d-34.6120729654465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca429815227f%3A0x5d302e497c2cda87!2sR%C3%ADo%20de%20Janeiro%20300%2C%20C1405CCB%20CABA!5e0!3m2!1ses-419!2sar!4v1649964369598!5m2!1ses-419!2sar" width="150" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="d-flex col-12 ">
+          <p id="copy-rights" class="align-self-center">Grupo G | Challenge MindHub 2022</p>
+      </div>
+  </footer>
 <script src="https://kit.fontawesome.com/b8d6808068.js" crossorigin="anonymous"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
   crossorigin="anonymous"></script>
