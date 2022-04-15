@@ -125,3 +125,54 @@ footer .titulo_footer {
     text-align: center;
     background-color: rgb(123, 123, 234);
 }
+
+/* cartel animado de poco stock */
+.producto {
+    color: black;
+  
+    width: 60%;
+    height: 15%;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    text-shadow: 0px 0px 2px black;
+  }
+  @keyframes example {
+    0% {
+      background-color: white;
+    }
+  
+    50% {
+      background-color: red;
+      box-shadow: 0 0 15px red;
+    }
+  
+    100% {
+      background-color: white;
+    }
+  }
+  
+  .productoAgotado {
+    color: black;
+  
+    width: 60%;
+    height: 15%;
+    animation-name: exampleAgotado;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    text-shadow: 0px 0px 2px black;
+  }
+  @keyframes exampleAgotado {
+    0% {
+      background-color: white;
+    }
+  
+    50% {
+      box-shadow: 0 0 20px grey;
+      background-color: grey;
+    }
+  
+    100% {
+      background-color: white;
+    }
+  }
