@@ -1,4 +1,7 @@
+
+
 Vue.createApp({
+  
   data() {
     return {
         productos: [],
@@ -7,7 +10,9 @@ Vue.createApp({
         mostrarSaludo: false,
         carrito: [],
         checkBoxesMascotas: [],
-        mostrarCarrito: false
+        valor: 1,
+        count: 0
+
     }
   },
 
@@ -31,28 +36,40 @@ Vue.createApp({
     mostrarFormulario(){
       this.mostrarSaludo = false
     },
-    mostrarCarritoDeCompras(){
-      this.mostrarCarrito = true
-    },
-    seguirComprando(){
-      this.mostrarCarrito = false
-    },
     aniadirACarrito(producto){
       if(!this.carrito.includes(producto) && producto.stock > 0){
-        console.log(producto.stock)
         producto.stock -= 1
+        //se agrega una propiedad al objeto que ayudara a dibujar el botn - +
+        producto.unidadesAComprar = 1
         this.carrito.push(producto)
-        console.log(producto.stock)
-        console.log("--------")
       }
     },
     finalizarCompra(){
-      
+      this.carrito.forEach(producto =>{
+        producto.stock = producto.stock - (producto.unidadesAComprar -1)
+        delete producto.unidadesAComprar
+      })
       this.carrito = []
-      //mover esto al boton de cerrar del modal
-      this.mostrarCarrito = false
-
+    },
+    aumentarUnidadesAComprar(producto){
+      if((producto.stock - producto.unidadesAComprar)>-1){
+        producto.unidadesAComprar++
+      }
+    },
+    disminuirUnidadesAComprar(producto){
+      if(producto.unidadesAComprar > 0){
+        producto.unidadesAComprar--
+      }
+    },
+    calcularSubtotal(producto){
+      return producto.precio * producto.unidadesAComprar
+    },
+    obtenerPrecioTotal(){
+      let precioTotal = 0
+      this.carrito.forEach(producto => precioTotal += this.calcularSubtotal(producto))
+      return precioTotal
     }
+
   },
   computed:{
 
