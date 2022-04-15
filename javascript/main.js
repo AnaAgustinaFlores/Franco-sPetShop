@@ -9,7 +9,8 @@ Vue.createApp({
         medicamentos:[],
         mostrarSaludo: false,
         carrito: [],
-        checkBoxesMascotas: [],
+        idDeProductosDeCarrito: [],
+        checkBoxesMascotas: [],//creo q no se usa
         valor: 1,
         count: 0
 
@@ -23,6 +24,8 @@ Vue.createApp({
             this.productos = data.response
             this.juguetes = this.productos.filter(producto => producto.tipo.includes("Juguete"))
             this.medicamentos = this.productos.filter(producto => producto.tipo.includes("Medicamento"))
+            this.carrito = JSON.parse(localStorage.getItem("carritoDeCompras"))!=null ? JSON.parse(localStorage.getItem("carritoDeCompras")) : []
+            
       })
   },
     
@@ -37,11 +40,14 @@ Vue.createApp({
       this.mostrarSaludo = false
     },
     aniadirACarrito(producto){
-      if(!this.carrito.includes(producto) && producto.stock > 0){
+      
+      this.idDeProductosDeCarrito = this.carrito.map(producto => producto._id)
+      if(!this.idDeProductosDeCarrito.includes(producto._id) && producto.stock > 0){
         producto.stock -= 1
         //se agrega una propiedad al objeto que ayudara a dibujar el botn - +
         producto.unidadesAComprar = 1
         this.carrito.push(producto)
+        localStorage.setItem("carritoDeCompras", JSON.stringify(this.carrito))
       }
     },
     finalizarCompra(){
@@ -50,6 +56,7 @@ Vue.createApp({
         delete producto.unidadesAComprar
       })
       this.carrito = []
+      localStorage.clear()
     },
     aumentarUnidadesAComprar(producto){
       if((producto.stock - producto.unidadesAComprar)>-1){
