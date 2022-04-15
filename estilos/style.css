@@ -111,3 +111,14 @@ footer p {
 #divmailcarrito{
     width: 30%;
 }
+
+/* boton + - */
+#contador input{
+    width: 25px;
+    text-align: center;
+}
+#contador button{
+    width: 25px;
+    text-align: center;
+    background-color: rgb(123, 123, 234);
+}
