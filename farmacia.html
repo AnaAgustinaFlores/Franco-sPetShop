@@ -14,210 +14,167 @@
 </head>
 <body>
   <div id="app">
-  <header class="sticky-top">
-    <div class="d-flex align-items-center h-100">
 
-        
-        
+
+    <header class="sticky-top">
+      <div class="d-flex align-items-center h-100">
         <nav class="d-flex align-items-center justify-content-center">
                     <div class="dropdown">
                         <a href="./index.html" class="dropbtn">Home</a>
                     </div>
                     <div class="dropdown">
-                        <a href="#" class="dropbtn">Farmacia</a>
+                        <a href="./farmacia.html" class="dropbtn">Farmacia</a>
                         <div class="dropdown-content">
-                            <a href="#">Antipulgas</a>
-                            <a href="#">Antiparasitario</a>
-                            <a href="#">Pipetas</a>
-                            <a href="#">Suplementos</a>
+                            <a href="./farmacia.html">Antipulgas</a>
+                            <a href="./farmacia.html">Antiparasitario</a>
+                            <a href="./farmacia.html">Pipetas</a>
+                            <a href="./farmacia.html">Suplementos</a>
                         </div>
                     </div>
             <div class="dropdown">
-                <a href="./juguetes.html" class="dropbtn">Juguetes</a>
+                <a href="#" class="dropbtn">Juguetes</a>
                 <div class="dropdown-content">
-                    <a href="./juguetes.html">Pelotas</a>
-                    <a href="./juguetes.html">Cuerdas</a>
-                    <a href="./juguetes.html">Bebederos</a>
-                    <a href="./juguetes.html">Frisbees</a>
+                    <a href="#">Pelotas</a>
+                    <a href="#">Cuerdas</a>
+                    <a href="#">Bebederos</a>
+                    <a href="#">Frisbees</a>
                 </div>
             </div>
-          </div>
-          <div class="dropdown">
-            <a href="./juguetes.html" class="dropbtn">Juguetes</a>
-            <div class="dropdown-content">
-              <a href="./juguetes.html">Pelotas</a>
-              <a href="./juguetes.html">Cuerdas</a>
-              <a href="./juguetes.html">Bebederos</a>
-              <a href="./juguetes.html">Frisbees</a>
+            <div>
+                <a href="./contacto.html" class="dropbtn">ContactUS</a>
             </div>
-          </div>
-          <div>
-            <a href="./contacto.html" class="dropbtn">ContactUS</a>
-          </div>
         </nav>
         <div class="divlogopetsohop">
-          <!-- <h1>Franco PetShop</h1> -->
+ 
           <img class="logopetshop" src="./images/logo franco pet shop blanco.png" alt="">
       </div>
-            
+              
 
         <!-- iconos mail y carrito -->
-        <div id="divmailcarrito" class="d-flex justify-content-end">
-          <a
-            href="mailto:francopetshop@gmail.com"
-            target="_blank"
-            class="dropbtn"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-mail"
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="#2c3e50"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <div id="divmailcarrito" class="d-flex justify-content-end ">
+          <a href="mailto:francopetshop@gmail.com" target="_blank"
+          class="dropbtn"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
               <rect x="3" y="5" width="18" height="14" rx="2" />
-              <polyline points="3 7 12 13 21 7" /></svg
-          ></a>
+              <polyline points="3 7 12 13 21 7" />
+            </svg>
+          </a>
 
-          <a
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasRight"
-            aria-controls="offcanvasRight"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-shopping-cart"
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="#2c3e50"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
               <circle cx="6" cy="19" r="2" />
               <circle cx="17" cy="19" r="2" />
               <path d="M17 17h-11v-14h-2" />
-              <path d="M6 5l14 1l-1 7h-13" /></svg
-          ></a>
-          <div
-            class="offcanvas offcanvas-end"
-            tabindex="-1"
-            id="offcanvasRight"
-            aria-labelledby="offcanvasRightLabel"
-          >
-            <div class="offcanvas-body">
-              <div class="offcanvas-header">
-                <button
-                  type="button"
-                  class="btn-close text-reset"
-                  data-bs-dismiss="offcanvas"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <table class="table table-hover">
-                <h5 id="offcanvasRightLabel">Carrito</h5>
-                <thead>
-                  <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Unidades</th>
-                  </tr>
-                </thead>
-                <tbody></tbody>
-              </table>
-            </div>
-                <table class="table table-hover">
-                        <h5 id="offcanvasRightLabel">Carrito</h5>
-                        <thead>
-                          <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Unidades</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                        </tbody>
-                      </table>
-            </div>
-                </div>
-            </div>
-    </div>
-</header>
-  <main>
+              <path d="M6 5l14 1l-1 7h-13" />
+            </svg>
+          </a>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
 
-    
-    
-      <div class="d-flex justify-content-center">
-        <div class="d-flex justify-content-between row gap-3 w-75">
-        <div class="card mt-5" style="width: 302px; height: 500px" v-for="medicamento in medicamentos">
-          <img v-bind:src="medicamento.imagen" class="card-img-top align-self-center" style="width: 300px; height: 300px;" alt="...">
-          <div class="card-body d-flex justify-content-between align-items-center flex-column"  >
-            <h5 class="card-title" >{{medicamento.nombre}}</h5>
-            <p class="card-text">Precio: ${{medicamento.precio}}</p>
-            <div class="btn-group dropend">
-              <button class="btn btn-secondary btn-sm dropdown-toggle bg-success" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Ver descripcion
-              </button>
-              <ul class="dropdown-menu" style="width: 300px;"> 
-                <li class="cart-text">{{medicamento.descripcion}}</li>
-              </ul>
-            </div>
-            <a href="#" class="btn btn-primary  btn-sm">Agregar al carrito</a>
+              <div class="offcanvas-body">
+                <!-- se puede mandar uno de los modales bonitos q indique q el carrito esta vacio,o un div mas bonito, reemplazando este div de v-if -->
+                <div v-if="carrito.length == 0">
+                  <div class="offcanvas-header">
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+                  <p>carrito vacio</p>
+                </div>
+
+                <div v-else>
+                  <div class="offcanvas-header">
+                      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+                  <table class="table table-hover">
+                    <h5 id="offcanvasRightLabel">Carrito</h5>
+                    <thead>
+                      <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Unidades</th>
+                        <th scope="col">subtotal</th>
+                        <th scope="col">eliminar</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="producto in carrito">
+                        <td>{{producto.nombre}}</td>
+                        <td>{{producto.precio}}</td>
+                        <td>
+                          <div id="contador" class="d-flex">
+                            <button v-on:click="disminuirUnidadesAComprar(producto)">-</button>
+                            <input type="text" :value="producto.unidadesAComprar">
+                            <button v-on:click="aumentarUnidadesAComprar(producto)">+</button>
+                          </div>
+                        </td>
+
+                        <td>{{calcularSubtotal(producto)}}</td>
+                        <td>
+                          <button v-on:click="eliminarDeCarrito(producto)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                              <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                            </svg>
+                          </button>
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                  <div class="d-flex gap-3 justify-content-center align-items-baseline">
+                    <h3>Precio Total:</h3>
+                    <p class="m-0 p-0 fs-3">{{obtenerPrecioTotal()}}</p>
+                  </div>
+                  <!-- boton de Finalizar Compra -->
+                  <div class="d-flex justify-content-center align-items-center mt-1">
+                    <button class="btn btn-primary " data-bs-dismiss="offcanvas" aria-label="Close" v-on:click="finalizarCompra">Finalizar Compra</button>
+                  </div>
+
+                </div>
+
+              </div>
           </div>
         </div>
       </div>
     </header>
-    <main>
-      <div id="app">
-        <div class="d-flex justify-content-center">
-          <div class="d-flex justify-content-between row gap-3 w-75">
-            <div
-              class="card mt-5"
-              style="width: 302px; height: 500px"
-              v-for="medicamento in medicamentos"
-            >
-              <img
-                v-bind:src="medicamento.imagen"
-                class="card-img-top align-self-center"
-                style="width: 300px; height: 300px"
-                alt="..."
-              />
-              <div
-                class="card-body d-flex justify-content-between align-items-center flex-column"
-              >
-                <h5 class="card-title">{{medicamento.nombre}}</h5>
-                <p class="card-text">Precio: ${{medicamento.precio}}</p>
-                <div class="btn-group dropend">
-                  <button
-                    class="btn btn-secondary btn-sm dropdown-toggle bg-success"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Ver descripcion
-                  </button>
-                  <ul class="dropdown-menu" style="width: 300px">
-                    <li class="cart-text">{{medicamento.descripcion}}</li>
-                  </ul>
-                </div>
-                <a href="#" class="btn btn-primary btn-sm"
-                  >Agregar al carrito</a
-                >
-              </div>
-            </div>
+<main>
+
+  <!-- muestra cards estaticas de compra -->
+  <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-between row gap-3 w-75">
+      <div class="card mt-5" style="width: 302px; height: 500px" v-for="medicamento in medicamentos">
+        <img v-bind:src="medicamento.imagen" class="card-img-top align-self-center" style="width: 300px; height: 300px;" alt="...">
+        <div class="card-body d-flex justify-content-between align-items-center flex-column"  >
+
+
+          <div class="producto d-flex justify-content-center align-items-center rounded" v-if="!(medicamento.stock >5)"> 
+            Ultimos 5 Productos
           </div>
+          <!-- <div class="productoAgotado d-flex justify-content-center align-items-center rounded"> Producto Agotado</div> -->
+
+          <h5 class="card-title">{{medicamento.nombre}}</h5>
+          <p class="card-text">$ {{medicamento.precio}}</p>
+          <div class="btn-group dropend">
+            <button class="btn btn-secondary btn-sm dropdown-toggle bg-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+              Ver descripcion
+            </button>
+            <ul class="dropdown-menu" style="width: 300px;"> 
+              <li class="cart-text">{{medicamento.descripcion}}</li>
+            </ul>
+          </div>
+          <div>{{medicamento.stock}}</div>
+
+          <!-- aniade producto al carrito restandole uno a su stock (en carrito!, en productos no se actuliza el stock hasta q la compra se complete) -->
+          <div v-if="!medicamento.estadoAgregado">
+            <button id="botonAgregar" class="btn btn-primary  btn-sm" v-on:click="aniadirACarrito(medicamento)" >Agregar al carrito 🛒</button>
+          </div>
+          <button v-else id="botonAgregado" class="btn btn-primary btn-sm" disabled>Agregado al carrito ✔</button>
+
         </div>
       </div>
-    </main>
+    </div>
+  </div>
+
+</main>
     <a
       href="https://www.instagram.com/mindhub_la/"
       class="btn-wsp position-fixed d-flex align-items-center justify-content-center"
