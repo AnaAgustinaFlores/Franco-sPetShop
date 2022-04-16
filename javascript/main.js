@@ -15,9 +15,9 @@ Vue.createApp({
         count: 0,
         ordenarProductosPorMenorStock: [],
         productosMenosStock: [],
-
-  
-
+        productoBuscador:"",
+        medicamentosFiltrados: [],
+        juguetesFiltrados:[]
     }
   },
 
@@ -34,7 +34,9 @@ Vue.createApp({
             this.ordenarProductosPorMenorStock = this.productos.sort(function(a,b){return a.stock - b.stock})
             for(let i = 0; i < 4; i++){
               this.productosMenosStock[i] = this.ordenarProductosPorMenorStock[i]
-            }   
+            } 
+            this.medicamentosFiltrados = this.medicamentos 
+            this.juguetesFiltrados = this.juguetes
       })
   },
 
@@ -130,7 +132,24 @@ Vue.createApp({
         }else{ cont ++ }
       }
       return indice
+    },
+
+    buscadorMedicamentos(){
+      if (!this.productoBuscador == ""){
+        this.medicamentosFiltrados = this.medicamentos.filter(medicamento => medicamento.nombre.toUpperCase().includes(this.productoBuscador.toUpperCase()))
+      }else{
+        this.medicamentosFiltrados = this.medicamentos       
     }
+    },
+
+    buscadorJuguetes(){
+      if (!this.productoBuscador == ""){
+        this.juguetesFiltrados = this.juguetes.filter(juguete => juguete.nombre.toUpperCase().includes(this.productoBuscador.toUpperCase()))
+      }else{
+        this.juguetesFiltrados = this.juguetes       
+    }
+    }
+    
   },
   computed:{
     

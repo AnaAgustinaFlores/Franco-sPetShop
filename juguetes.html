@@ -33,7 +33,7 @@
                         </div>
                     </div>
             <div class="dropdown">
-                <a href="#" class="dropbtn">Juguetes</a>
+                <a href="./juguetes.html" class="dropbtn">Juguetes</a>
                 <div class="dropdown-content">
                     <a href="#">Pelotas</a>
                     <a href="#">Cuerdas</a>
@@ -53,6 +53,12 @@
 
         <!-- iconos mail y carrito -->
         <div id="divmailcarrito" class="d-flex justify-content-end ">
+
+          <form >
+            <input v-model="productoBuscador" type="text">
+              <button  v-on:click.prevent="buscadorJuguetes">Buscar</button>
+          </form>
+
           <a href="mailto:francopetshop@gmail.com" target="_blank"
           class="dropbtn"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -142,7 +148,7 @@
         <!-- muestra cards estaticas de compra -->
         <div class="d-flex justify-content-center">
           <div class="d-flex justify-content-between row gap-3 w-75">
-            <div class="card mt-5" style="width: 302px; height: 500px" v-for="juguete in juguetes">
+            <div class="card mt-5" style="width: 302px; height: 500px" v-for="juguete in juguetesFiltrados">
               <img v-bind:src="juguete.imagen" class="card-img-top align-self-center" style="width: 300px; height: 300px;" alt="...">
               <div class="card-body d-flex justify-content-between align-items-center flex-column"  >
 
