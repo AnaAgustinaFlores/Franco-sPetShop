@@ -1,8 +1,10 @@
-*{
-    margin: 0;padding: 0;box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body{
-    height: 100vh;
+body {
+  height: 100vh;
 }
 header{
     height:15%;
@@ -11,28 +13,25 @@ header{
 }
 nav{
     height: 5%;
-    width: 45%;
+    width: 40%;
 }
 nav a{
 
     text-decoration: none;
 }
 
-main{
-
-    min-height: 65%;
-    background-color: red;
+main {
+  min-height: 65%;
+  background-color: red;
 }
-
-
 
 .card-title {
-    font-size: 15px;
+  font-size: 15px;
 }
 
-.card{
-    background-color: rgb(144, 12, 63 );
-    color: white;
+.card {
+  background-color: rgb(144, 12, 63);
+  color: white;
 }
 footer{
     min-height: 40%;
@@ -92,13 +91,21 @@ footer .titulo_footer {
     display: block;
   }
 
-  
-  .dropdown-content a:hover {background-color: #ddd;}
-  
-  .dropdown:hover .dropdown-content {display: block;}
-  
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #04aa6d;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
 
-  
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
 
 
 
@@ -125,3 +132,83 @@ footer .titulo_footer {
     text-align: center;
     background-color: rgb(123, 123, 234);
 }
+
+
+
+.logopetshop{
+    height: 100px;
+    width: 350px;
+}
+
+/* cartel animado de poco stock */
+.producto {
+    color: black;
+  
+    width: 60%;
+    height: 15%;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    text-shadow: 0px 0px 2px black;
+  }
+  @keyframes example {
+    0% {
+      background-color: white;
+    }
+  
+    50% {
+      background-color: red;
+      box-shadow: 0 0 15px red;
+    }
+  
+    100% {
+      background-color: white;
+    }
+  }
+  
+  .productoAgotado {
+    color: black;
+  
+    width: 60%;
+    height: 15%;
+    animation-name: exampleAgotado;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    text-shadow: 0px 0px 2px black;
+  }
+  @keyframes exampleAgotado {
+    0% {
+      background-color: white;
+    }
+  
+    50% {
+      box-shadow: 0 0 20px grey;
+      background-color: grey;
+    }
+  
+    100% {
+      background-color: white;
+    }
+  }
+
+
+  /*  boton agregar y ver descripcion */
+ #botonAgregar{
+  background-color:#2EC4B6;
+  border-color: #04aa6d;
+}
+#botonAgregar:hover {
+ background-color:#04aa6d;
+ border-color: #2EC4B6;
+}
+
+#botonAgregado{
+ background-color:#04aa6d;
+ border-color: #2EC4B6;
+}
+
+#botonSinStock{
+  background-color:red;
+  border-color: #2EC4B6;
+ }
+ 
