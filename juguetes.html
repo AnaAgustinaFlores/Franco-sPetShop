@@ -163,14 +163,16 @@
                     <li class="cart-text">{{juguete.descripcion}}</li>
                   </ul>
                 </div>
-                <div>{{juguete.stock}}</div>
+               
 
                 <!-- aniade producto al carrito restandole uno a su stock (en carrito!, en productos no se actuliza el stock hasta q la compra se complete) -->
-                <div v-if="!juguete.estadoAgregado">
-                  <button id="botonAgregar" class="btn btn-primary  btn-sm" v-on:click="aniadirACarrito(juguete)" >Agregar al carrito 🛒</button>
+                <div v-if="juguete.stock > 0">
+                  <button id="botonAgregar" class="btn btn-primary  btn-sm" v-on:click="aniadirACarrito(juguete)" v-if="!juguete.estadoAgregado">Agregar al carrito 🛒</button>
+                  <button id="botonAgregado" class="btn btn-primary btn-sm" disabled v-else>Agregado al carrito ✔</button>
                 </div>
-                <button v-else id="botonAgregado" class="btn btn-primary btn-sm" disabled>Agregado al carrito ✔</button>
-
+                <div v-else>
+                  <button v-else id="botonSinStock" class="btn btn-primary btn-sm" disabled>Sin Stock</button>
+                </div>
               </div>
             </div>
           </div>

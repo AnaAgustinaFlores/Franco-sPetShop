@@ -23,7 +23,7 @@
                         <a href="./index.html" class="dropbtn">Home</a>
                     </div>
                     <div class="dropdown">
-                        <a href="./farmacia.html" class="dropbtn">Farmacia</a>
+                        <a href="#" class="dropbtn">Farmacia</a>
                         <div class="dropdown-content">
                             <a href="./farmacia.html">Antipulgas</a>
                             <a href="./farmacia.html">Antiparasitario</a>
@@ -32,12 +32,12 @@
                         </div>
                     </div>
             <div class="dropdown">
-                <a href="#" class="dropbtn">Juguetes</a>
+                <a href="./juguetes.html" class="dropbtn">Juguetes</a>
                 <div class="dropdown-content">
-                    <a href="#">Pelotas</a>
-                    <a href="#">Cuerdas</a>
-                    <a href="#">Bebederos</a>
-                    <a href="#">Frisbees</a>
+                    <a href="./juguetes.html">Pelotas</a>
+                    <a href="./juguetes.html">Cuerdas</a>
+                    <a href="./juguetes.html">Bebederos</a>
+                    <a href="./juguetes.html">Frisbees</a>
                 </div>
             </div>
             <div>
@@ -161,13 +161,16 @@
               <li class="cart-text">{{medicamento.descripcion}}</li>
             </ul>
           </div>
-          <div>{{medicamento.stock}}</div>
+          
 
           <!-- aniade producto al carrito restandole uno a su stock (en carrito!, en productos no se actuliza el stock hasta q la compra se complete) -->
-          <div v-if="!medicamento.estadoAgregado">
-            <button id="botonAgregar" class="btn btn-primary  btn-sm" v-on:click="aniadirACarrito(medicamento)" >Agregar al carrito 🛒</button>
+          <div v-if="medicamento.stock > 0">
+            <button id="botonAgregar" class="btn btn-primary  btn-sm" v-on:click="aniadirACarrito(medicamento)" v-if="!medicamento.estadoAgregado">Agregar al carrito 🛒</button>
+            <button id="botonAgregado" class="btn btn-primary btn-sm" disabled v-else>Agregado al carrito ✔</button>
           </div>
-          <button v-else id="botonAgregado" class="btn btn-primary btn-sm" disabled>Agregado al carrito ✔</button>
+          <div v-else>
+            <button v-else id="botonSinStock" class="btn btn-primary btn-sm" disabled>Sin Stock</button>
+          </div>
 
         </div>
       </div>
