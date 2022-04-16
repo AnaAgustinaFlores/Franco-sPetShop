@@ -1,8 +1,10 @@
-*{
-    margin: 0;padding: 0;box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body{
-    height: 100vh;
+body {
+  height: 100vh;
 }
 header{
     height:15%;
@@ -18,21 +20,18 @@ nav a{
     text-decoration: none;
 }
 
-main{
-
-    min-height: 65%;
-    background-color: red;
+main {
+  min-height: 65%;
+  background-color: red;
 }
-
-
 
 .card-title {
-    font-size: 15px;
+  font-size: 15px;
 }
 
-.card{
-    background-color: rgb(144, 12, 63 );
-    color: white;
+.card {
+  background-color: rgb(144, 12, 63);
+  color: white;
 }
 footer{
     min-height: 40%;
@@ -92,13 +91,21 @@ footer .titulo_footer {
     display: block;
   }
 
-  
-  .dropdown-content a:hover {background-color: #ddd;}
-  
-  .dropdown:hover .dropdown-content {display: block;}
-  
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #04aa6d;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
 
-  
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
 
 
 
@@ -200,3 +207,8 @@ footer .titulo_footer {
  border-color: #2EC4B6;
 }
 
+#botonSinStock{
+  background-color:red;
+  border-color: #2EC4B6;
+ }
+ 
