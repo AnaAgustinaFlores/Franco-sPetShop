@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -7,22 +9,26 @@ body {
   height: 100vh;
 }
 header{
-    height:15%;
+    height:20vh;
     background-color: #2EC4B6;
+    font-family: 'Open Sans', sans-serif;
     
 }
 nav{
     height: 5%;
     width: 40%;
-}
-nav a{
 
+}
+nav a:hover{
     text-decoration: none;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.671);
+
 }
 
 main {
   min-height: 65%;
-  background-color: red;
+  background-color: white;
 }
 
 .card-title {
@@ -44,6 +50,13 @@ footer a{
     text-decoration: none;
     margin: 1rem .5rem;
     cursor: pointer;
+}
+
+footer a:hover{
+  text-decoration: none;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.671);
+
 }
 
 #copy-rights {
