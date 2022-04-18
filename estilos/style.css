@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -396,4 +396,36 @@ footer .titulo_footer {
   width: 50vw !important;
 }
 
-/* Texto animado */
+/* --------------- Texto animado ------------*/
+#textoAnimado{
+
+  width: 100;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vh;
+}
+h6{
+    background: linear-gradient(90deg,#CBF3F0, #2EC4B6, #FF9F1C, #FFBF69);
+    background-size: 400%;
+    background-position: -100%;
+    font-size: 10vh;
+    font-family: 'Secular One', sans-serif;
+    letter-spacing: 2px;
+    font-weight: 100;
+    word-spacing: 3px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate 4s linear infinite;
+}
+
+@keyframes animate{
+  0%{
+    background-position: 0;
+  }
+  100%{
+    background-position: 400;
+  }
+}
