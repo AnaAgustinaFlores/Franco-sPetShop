@@ -165,8 +165,8 @@
                   <h3 class="d-flex justify-content-center mb-2">Mis favoritos</h3>
                 <div class="d-flex justify-content-center">
                   <div class="d-flex justify-content-between row gap-3 w-75">
-                    <div class="card cardFav mb-5" style="width: 302px; height: 550px" v-for="medicamento in productosFavoritos">
-                      <img v-bind:src="medicamento.imagen" class="card-img-top align-self-center" style="width: 300px; height: 300px;" alt="...">
+                    <div id="tarjetaFav" class="card cardFav mb-5" style="width: 282px; height: 480px" v-for="medicamento in productosFavoritos">
+                      <img v-bind:src="medicamento.imagen" class="card-img-top align-self-center pt-1" style="width: 230px; height: 230px;" alt="...">
                       <div class="card-body d-flex justify-content-between align-items-center flex-column"  >
         
         
@@ -175,14 +175,16 @@
                         </div>
                         <!-- <div class="productoAgotado d-flex justify-content-center align-items-center rounded"> Producto Agotado</div> -->
         
-                        <h5 class="card-title">{{medicamento.nombre}}</h5>
+                        <div class="d-flex justify-content-center textoCentrado">
+                          <p  class="card-title">{{medicamento.nombre}}</p>
+                        </div>
                         <p class="card-text">$ {{medicamento.precio}}</p>
                         <div class="btn-group dropend">
                           <button class="btn btn-secondary btn-sm dropdown-toggle bg-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         
                             Ver descripcion
                           </button>
-                          <ul class="dropdown-menu" style="width: 300px;"> 
+                          <ul class="dropdown-menu" id="descripcionProduct" style="width: 100px;"> 
                             <li class="cart-text">{{medicamento.descripcion}}</li>
                           </ul>
                         </div>
@@ -209,8 +211,8 @@
   <h3 class="d-flex justify-content-center mb-2">Farmacia</h3>
     <div class="d-flex justify-content-center">
       <div class="d-flex justify-content-between row gap-3 w-75">
-        <div class="card mb-5" style="width: 302px; height: 550px" v-for="medicamento in medicamentos">
-          <img v-bind:src="medicamento.imagen" class="card-img-top align-self-center" style="width: 300px; height: 300px;" alt="...">
+        <div id="tarjetas1" class="card mb-5" style="width: 282px; height: 480px" v-for="medicamento in medicamentos">
+          <img v-bind:src="medicamento.imagen" class="card-img-top align-self-center pt-1" style="width: 230px; height: 230px;" alt="...">
           <div class="card-body d-flex justify-content-between align-items-center flex-column"  >
 
 
@@ -220,14 +222,16 @@
           </div>
           <!-- <div class="productoAgotado d-flex justify-content-center align-items-center rounded"> Producto Agotado</div> -->
 
-        <p  class="card-title">{{medicamento.nombre}}</p>
+          <div class="d-flex justify-content-center textoCentrado">
+            <p  class="card-title">{{medicamento.nombre}}</p>
+          </div>
           <h5  class="card-text">$ {{medicamento.precio}}</h5>
           <div class="btn-group dropend">
             <button id="descripcionButton" class="btn btn-secondary btn-sm dropdown-toggle bg-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 
               Ver descripcion
             </button>
-            <ul class="dropdown-menu" id="descripcionProduct" style="width: 300px;"> 
+            <ul class="dropdown-menu" id="descripcionProduct" style="width: 100px;"> 
               <li class="cart-text">{{medicamento.descripcion}}</li>
             </ul>
           </div>

@@ -37,10 +37,7 @@ main {
   font-size: 15px;
 }
 
-.card {
-  background-color: rgb(144, 12, 63);
-  color: white;
-}
+
 footer{
     min-height: 40vh;
     padding: 1rem 2rem;
@@ -102,7 +99,7 @@ footer .titulo_footer {
 
 #tarjetas{
   background-color: #CBF3F0 !important;
-  height: 70vh !important;
+  /* height: 70vh !important; */
   color: black !important;
   
 }
@@ -119,6 +116,16 @@ footer .titulo_footer {
 #tarjetas1:hover{
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
+
+#tarjetaFav{
+  background-color: rgb(226, 99, 26);
+  color: white; 
+}
+
+#tarjetaFav:hover{
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
 #caritaPerroFooter{
 
   height: 15vh;
@@ -331,9 +338,6 @@ footer .titulo_footer {
   border-color: #2EC4B6;
  }
 
-.cardFav{
-  background-color: rgb(226, 99, 26);
-  color: white; 
 
  
  /*estilo loader*/
@@ -479,4 +483,8 @@ h6{
   100%{
     background-position: 400;
   }
+}
+
+.textoCentrado{
+  text-align: center;
 }
