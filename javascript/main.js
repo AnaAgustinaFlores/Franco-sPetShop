@@ -11,11 +11,9 @@ Vue.createApp({
         idDeProductosDeCarrito: [],
         ordenarProductosPorMenorStock: [],
         productosMenosStock: [],
-        mostrar: false,
-        checkBoxesMascotas: [],
-        nombresForm: "",
-        apellidosForm: "",
-        telefonoForm: ""
+        productoBuscador:"",
+        medicamentosFiltrados: [],
+        juguetesFiltrados:[]
     }
   },
 
@@ -24,6 +22,7 @@ Vue.createApp({
           .then(response => response.json())
           .then(data => {
             this.productos = data.response
+            document.querySelector("#loader").classList.toggle("loader2")
             this.productos.forEach(producto => producto.estadoAgregado = false)
             this.preservarDatosAlRecargar()
             this.juguetes = this.productos.filter(producto => producto.tipo.includes("Juguete"))
@@ -32,7 +31,9 @@ Vue.createApp({
             this.ordenarProductosPorMenorStock = this.productos.sort(function(a,b){return a.stock - b.stock})
             for(let i = 0; i < 4; i++){
               this.productosMenosStock[i] = this.ordenarProductosPorMenorStock[i]
-            }   
+            } 
+            this.medicamentosFiltrados = this.medicamentos 
+            this.juguetesFiltrados = this.juguetes
       })
   },
 
@@ -124,12 +125,31 @@ Vue.createApp({
       }
       return indice
     },
+<<<<<<< HEAD
     limpiarFormulario(){
       
       document.querySelector("form").reset()
       this.mostrar = false
       this.checkBoxesMascotas = []
     },
+=======
+
+    buscadorMedicamentos(){
+      if (!this.productoBuscador == ""){
+        this.medicamentosFiltrados = this.medicamentos.filter(medicamento => medicamento.nombre.toUpperCase().includes(this.productoBuscador.toUpperCase()))
+      }else{
+        this.medicamentosFiltrados = this.medicamentos       
+    }
+    },
+
+    buscadorJuguetes(){
+      if (!this.productoBuscador == ""){
+        this.juguetesFiltrados = this.juguetes.filter(juguete => juguete.nombre.toUpperCase().includes(this.productoBuscador.toUpperCase()))
+      }else{
+        this.juguetesFiltrados = this.juguetes       
+    }
+    }
+>>>>>>> main
     
   },
   computed:{
