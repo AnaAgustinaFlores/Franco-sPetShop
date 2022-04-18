@@ -51,7 +51,7 @@
             </nav>
                 <div class="divlogopetsohop">
                    
-                    <img class="logopetshop" src="./images/logo_con_texto_naranja_patitas.png" alt="Logo Franco Pet">
+                    <img class="logopetshop img-fluid" src="./images/logo_con_texto_naranja_patitas.png" alt="Logo Franco Pet">
                 </div>
                 
 
@@ -135,10 +135,10 @@
 
   <div id="textoAnimado" class="d-flex pt-5 pb-1">
     <h6>PRODUCTOS DESTACADOS</h6>
-  </div
-            < div class="d-flex justify-content-center">
-              <div class="d-flex justify-content-between row gap-auto w-35 pb-5 m-2">
-              <div id="tarjetas" class="card mt-5" style="width: 282px; height: 480px" v-for="producto in productosMenosStock">
+  </div>
+            <div class="d-flex justify-content-center pt-3 pb-5">
+              <div class="d-flex  justify-content-center gap-5 row">
+              <div id="tarjetas" class="card mt-3" style="width: 272px; height: 470px" v-for="producto in productosMenosStock">
                 <img v-bind:src="producto.imagen" class="card-img-top align-self-center pt-1" style="width: 230px; height: 230px;" alt="...">
                 <div class="card-body d-flex justify-content-between align-items-center flex-column"  >
                  <p class="card-title" >{{producto.nombre}}</p>
@@ -150,7 +150,7 @@
                     <ul id="descripcionProduct" class="dropdown-menu" style="width: 100px;"> 
                       <li class="cart-text">{{producto.descripcion}}</li>
                     </ul>
-                  </div>
+                </div>
 
                 </div>
               </div>

@@ -7,7 +7,7 @@
 }
 body {
   height: 100vh;
-  width: 100vw;
+ 
 }
 header{
     min-height: 20vh;
@@ -44,9 +44,14 @@ main {
   background-color: rgb(144, 12, 63);
   color: white;
 }
+
+.divlogopetsohop{
+  max-width: 400px;
+
+}
 footer{
     min-height: 40vh;
-    min-width: 100vw;
+   
     padding: 1rem 2rem;
     background-color: #2ec4b6;
 }
