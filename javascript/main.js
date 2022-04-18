@@ -15,8 +15,8 @@ Vue.createApp({
         count: 0,
         ordenarProductosPorMenorStock: [],
         productosMenosStock: [],
-
-  
+        productoBuscado: "",
+        productoFiltrado: []
 
     }
   },
@@ -39,6 +39,14 @@ Vue.createApp({
   },
 
   methods: {
+    buscarProducto(){
+      if (!this.productoBuscado == ""){
+        this.productoFiltrado = this.medicamentos.filter(producto => producto.nombre.toUpperCase().includes(this.productoBuscado.toUpperCase()))
+    } else {
+        this.productoFiltrado = this.medicamentos
+    }
+    },
+
     preservarDatosAlRecargar(){
 
       if(JSON.parse(localStorage.getItem("carritoDeCompras")) !=null){
