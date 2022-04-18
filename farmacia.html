@@ -295,36 +295,86 @@
     
     </header>
 <main>
+                <!-- Favoritos -->
+                <div v-if="productosFavoritos.length > 0">
+                  <h3 class="d-flex justify-content-center mb-2">Mis favoritos</h3>
+                <div class="d-flex justify-content-center">
+                  <div class="d-flex justify-content-between row gap-3 w-75">
+                    <div id="tarjetaFav" class="card cardFav mb-5" style="width: 282px; height: 480px" v-for="medicamento in productosFavoritos">
+                      <img v-bind:src="medicamento.imagen" class="card-img-top align-self-center pt-1" style="width: 230px; height: 230px;" alt="...">
+                      <div class="card-body d-flex justify-content-between align-items-center flex-column"  >
+        
+        
+                        <div class="producto d-flex justify-content-center align-items-center rounded" v-if="!(medicamento.stock >5)"> 
+                          Ultimas Unidades
+                        </div>
+                        <!-- <div class="productoAgotado d-flex justify-content-center align-items-center rounded"> Producto Agotado</div> -->
+        
+                        <div class="d-flex justify-content-center textoCentrado">
+                          <p  class="card-title">{{medicamento.nombre}}</p>
+                        </div>
+                        <p class="card-text">$ {{medicamento.precio}}</p>
+                        <div class="btn-group dropend">
+                          <button class="btn btn-secondary btn-sm dropdown-toggle bg-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        
+                            Ver descripcion
+                          </button>
+                          <ul class="dropdown-menu" id="descripcionProduct" style="width: 100px;"> 
+                            <li class="cart-text">{{medicamento.descripcion}}</li>
+                          </ul>
+                        </div>
+                       
+                        <div>
+                          <button id="botonQuitarFav" v-on:click="borrarDeFavoritos(medicamento, medicamentos)" v-else="medicamento.esFavorito" class="btn btn-primary  btn-sm">Quitar de favoritos</button>
+                        </div>
+        
+                        <!-- aniade producto al carrito restandole uno a su stock (en carrito!, en productos no se actuliza el stock hasta q la compra se complete) -->
+                        <div v-if="medicamento.stock > 0">
+                          <button id="botonAgregarF" class="btn btn-primary  btn-sm" v-on:click="aniadirACarrito(medicamento)" v-if="!medicamento.estadoAgregado">Agregar al carrito 🛒</button>
+                          <button id="botonAgregadoF" class="btn btn-primary btn-sm" disabled v-else>Agregado al carrito ✔</button>
+                        </div>
+                        <div v-else>
+                          <button v-else id="botonSinStockF" class="btn btn-primary btn-sm" disabled>Sin Stock</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
   <!-- muestra cards estaticas de compra -->
-  <div class="d-flex justify-content-center">
-
-    <div class="d-flex justify-content-between row gap-3 w-75 pb-5">
-      <div id="tarjetas1" class="card mt-5" style="width: 302px; height: 500px" v-for="medicamento in medicamentosFiltrados">
-        <img v-bind:src="medicamento.imagen" class="card-img-top align-self-center  pt-3" style="width: 250px; height: 250px;" alt="...">
-
-
-        <div class="card-body d-flex justify-content-between align-items-center flex-column"  >
+  <h3 class="d-flex justify-content-center mb-2">Farmacia</h3>
+    <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-between row gap-3 w-75">
+        <div id="tarjetas1" class="card mb-5" style="width: 282px; height: 480px" v-for="medicamento in medicamentosFiltrados">
+          <img v-bind:src="medicamento.imagen" class="card-img-top align-self-center pt-1" style="width: 230px; height: 230px;" alt="...">
+          <div class="card-body d-flex justify-content-between align-items-center flex-column"  >
 
 
           <div class="producto d-flex justify-content-center align-items-center rounded" v-if="!(medicamento.stock >5)"> 
-            Ultimos Productos
+            Ultimas Unidades
+
           </div>
           <!-- <div class="productoAgotado d-flex justify-content-center align-items-center rounded"> Producto Agotado</div> -->
 
-        <p  class="card-title">{{medicamento.nombre}}</p>
+          <div class="d-flex justify-content-center textoCentrado">
+            <p  class="card-title">{{medicamento.nombre}}</p>
+          </div>
           <h5  class="card-text">$ {{medicamento.precio}}</h5>
           <div class="btn-group dropend">
             <button id="descripcionButton" class="btn btn-secondary btn-sm dropdown-toggle bg-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 
               Ver descripcion
             </button>
-            <ul class="dropdown-menu" id="descripcionProduct" style="width: 300px;"> 
+            <ul class="dropdown-menu" id="descripcionProduct" style="width: 100px;"> 
               <li class="cart-text">{{medicamento.descripcion}}</li>
             </ul>
           </div>
           
-
+          <div>
+            <button id="botonAgregar" class="btn btn-primary  btn-sm" v-on:click="agregarAFavoritos(medicamento)" v-if="!medicamento.esFavorito">Agregar a Favoritos ✩</button>
+            <button id="botonAgregado" class="btn btn-primary btn-sm" disabled v-else="medicamento.esFavorito">Agregado a favoritos ⭐</button>
+          </div>
           <!-- aniade producto al carrito restandole uno a su stock (en carrito!, en productos no se actuliza el stock hasta q la compra se complete) -->
           <div v-if="medicamento.stock > 0">
             <button id="botonAgregar" class="btn btn-primary  btn-sm" v-on:click="aniadirACarrito(medicamento)" v-if="!medicamento.estadoAgregado">Agregar al carrito 🛒</button>
@@ -367,6 +417,7 @@
       <div class="d-flex row col-3 align-items-baseline justify-content-center">
         <img src="./images/carita naranja.png" id="caritaPerroFooter" alt="logo franco pet shop pequeño">
       </div>
+
       <div class="d-flex row col-3">
         <a href="./index.html" class="titulo_footer" >Tienda</a>
       
@@ -392,6 +443,7 @@
                   <polyline points="3 7 12 13 21 7" />
                 </svg> francopetshop@gmail.com
           </a>
+
       </div>
       <div class="d-flex col-3 row">
           <p class="titulo_footer">Donde encontrarnos</p>

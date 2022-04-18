@@ -40,10 +40,7 @@ main {
   font-size: 15px;
 }
 
-.card {
-  background-color: rgb(144, 12, 63);
-  color: white;
-}
+
 footer{
     min-height: 40vh;
     min-width: 100vw;
@@ -94,13 +91,17 @@ footer .titulo_footer {
   justify-content: center;
   padding-left: 5vw;
 }
+#divMensajeFormEnviado{
+  min-height: inherit;
+  width: inherit;
+}
 #formulario{
   min-width: 50vw;
 }
 
 #tarjetas{
   background-color: #CBF3F0 !important;
-  height: 70vh !important;
+  /* height: 70vh !important; */
   color: black !important;
   
 }
@@ -117,6 +118,16 @@ footer .titulo_footer {
 #tarjetas1:hover{
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
+
+#tarjetaFav{
+  background-color: rgb(226, 99, 26);
+  color: white; 
+}
+
+#tarjetaFav:hover{
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
 #caritaPerroFooter{
 
   max-height: 150px;
@@ -332,6 +343,50 @@ footer .titulo_footer {
   background-color: gray;
   border-color: rgba(128, 128, 128, 0.493);
  }
+
+
+/* boton agregar y boton quitar de favoritos  */ 
+#botonAgregarFav{
+  background-color:#2EC4B6;
+  border-color: #04aa6d;
+}
+#botonAgregarFav:hover {
+ background-color:#04aa6d;
+ border-color: #2EC4B6;
+}
+#botonAgregadoFav{
+  background-color:#04aa6d;
+  border-color: #2EC4B6;
+ }
+
+#botonQuitarFav{
+  background-color:red;
+  border-color: rgb(155, 52, 12);
+}
+#botonQuitarFav:hover{
+  background-color:rgb(230, 126, 66);
+  border-color: rgb(155, 52, 12);
+}
+#botonAgregarF{
+  background-color:#2EC4B6;
+  border-color: #04aa6d;
+}
+#botonAgregarF:hover {
+ background-color:#04aa6d;
+ border-color: #2EC4B6;
+}
+
+#botonAgregadoF{
+ background-color:#04aa6d;
+ border-color: #2EC4B6;
+}
+
+#botonSinStockF{
+  background-color:red;
+  border-color: #2EC4B6;
+ }
+
+
  
  /*estilo loader*/
 
@@ -476,4 +531,8 @@ h6{
   100%{
     background-position: 400;
   }
+}
+
+.textoCentrado{
+  text-align: center;
 }
