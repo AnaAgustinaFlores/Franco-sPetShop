@@ -138,16 +138,16 @@
 <main>
                 <!-- Favoritos -->
                 <div v-if="productosFavoritos.length > 0">
-                  <h2>Mis productos favoritos:</h2>
+                  <h3 class="d-flex justify-content-center mb-2">Mis productos favoritos</h3>
                 <div class="d-flex justify-content-center">
                   <div class="d-flex justify-content-between row gap-3 w-75">
-                    <div class="card mt-5" style="width: 302px; height: 500px" v-for="medicamento in productosFavoritos">
+                    <div class="card cardFav mb-5" style="width: 302px; height: 550px" v-for="medicamento in productosFavoritos">
                       <img v-bind:src="medicamento.imagen" class="card-img-top align-self-center" style="width: 300px; height: 300px;" alt="...">
                       <div class="card-body d-flex justify-content-between align-items-center flex-column"  >
         
         
                         <div class="producto d-flex justify-content-center align-items-center rounded" v-if="!(medicamento.stock >5)"> 
-                          Ultimos 5 Productos
+                          Ultimas Unidades
                         </div>
                         <!-- <div class="productoAgotado d-flex justify-content-center align-items-center rounded"> Producto Agotado</div> -->
         
@@ -169,11 +169,11 @@
         
                         <!-- aniade producto al carrito restandole uno a su stock (en carrito!, en productos no se actuliza el stock hasta q la compra se complete) -->
                         <div v-if="medicamento.stock > 0">
-                          <button id="botonAgregar" class="btn btn-primary  btn-sm" v-on:click="aniadirACarrito(medicamento)" v-if="!medicamento.estadoAgregado">Agregar al carrito 🛒</button>
-                          <button id="botonAgregado" class="btn btn-primary btn-sm" disabled v-else>Agregado al carrito ✔</button>
+                          <button id="botonAgregarF" class="btn btn-primary  btn-sm" v-on:click="aniadirACarrito(medicamento)" v-if="!medicamento.estadoAgregado">Agregar al carrito 🛒</button>
+                          <button id="botonAgregadoF" class="btn btn-primary btn-sm" disabled v-else>Agregado al carrito ✔</button>
                         </div>
                         <div v-else>
-                          <button v-else id="botonSinStock" class="btn btn-primary btn-sm" disabled>Sin Stock</button>
+                          <button v-else id="botonSinStockF" class="btn btn-primary btn-sm" disabled>Sin Stock</button>
                         </div>
                       </div>
                     </div>
@@ -182,15 +182,16 @@
               </div>
 
   <!-- muestra cards estaticas de compra -->
-  <div class="d-flex justify-content-center">
-    <div class="d-flex justify-content-between row gap-3 w-75">
-      <div class="card mt-5" style="width: 302px; height: 500px" v-for="medicamento in medicamentos">
-        <img v-bind:src="medicamento.imagen" class="card-img-top align-self-center" style="width: 300px; height: 300px;" alt="...">
-        <div class="card-body d-flex justify-content-between align-items-center flex-column"  >
+  <h3 class="d-flex justify-content-center mb-2">Farmacia</h3>
+    <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-between row gap-3 w-75">
+        <div class="card mb-5" style="width: 302px; height: 550px" v-for="medicamento in medicamentos">
+          <img v-bind:src="medicamento.imagen" class="card-img-top align-self-center" style="width: 300px; height: 300px;" alt="...">
+          <div class="card-body d-flex justify-content-between align-items-center flex-column"  >
 
 
           <div class="producto d-flex justify-content-center align-items-center rounded" v-if="!(medicamento.stock >5)"> 
-            Ultimos 5 Productos
+            Ultimas Unidades
           </div>
           <!-- <div class="productoAgotado d-flex justify-content-center align-items-center rounded"> Producto Agotado</div> -->
 
@@ -207,8 +208,8 @@
           </div>
           
           <div>
-            <button id="botonAgregarFav" class="btn btn-primary  btn-sm" v-on:click="agregarAFavoritos(medicamento)" v-if="!medicamento.esFavorito">Agregar a Favoritos ✩</button>
-            <button id="botonAgregadoFav" class="btn btn-primary btn-sm" disabled v-else="medicamento.esFavorito">Agregado a favoritos ⭐</button>
+            <button id="botonAgregar" class="btn btn-primary  btn-sm" v-on:click="agregarAFavoritos(medicamento)" v-if="!medicamento.esFavorito">Agregar a Favoritos ✩</button>
+            <button id="botonAgregado" class="btn btn-primary btn-sm" disabled v-else="medicamento.esFavorito">Agregado a favoritos ⭐</button>
           </div>
           <!-- aniade producto al carrito restandole uno a su stock (en carrito!, en productos no se actuliza el stock hasta q la compra se complete) -->
           <div v-if="medicamento.stock > 0">
@@ -275,8 +276,8 @@
           </svg>
           Instagram</a
         >
-        <a href="facebook.com" target="_blank"
-          ><svg
+        <a href="facebook.com" target="_blank">
+          <svg>
             xmlns="http://www.w3.org/2000/svg"
             class="icon icon-tabler icon-tabler-brand-facebook"
             width="28"
@@ -290,8 +291,7 @@
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path
-              d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"
-            />
+              d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"/>
           </svg>
           Facebook</a
         >
