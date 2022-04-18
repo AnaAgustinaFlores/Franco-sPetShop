@@ -26,6 +26,7 @@ Vue.createApp({
           .then(response => response.json())
           .then(data => {
             this.productos = data.response
+            document.querySelector("#loader").classList.toggle("loader2")
             this.productos.forEach(producto => producto.estadoAgregado = false)
             this.preservarDatosAlRecargar()
             this.juguetes = this.productos.filter(producto => producto.tipo.includes("Juguete"))
