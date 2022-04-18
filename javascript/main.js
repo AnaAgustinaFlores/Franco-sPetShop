@@ -11,16 +11,10 @@ Vue.createApp({
         idDeProductosDeCarrito: [],
         ordenarProductosPorMenorStock: [],
         productosMenosStock: [],
-<<<<<<< HEAD
-        productoBuscado: "",
-        productoFiltrado: []
-
-=======
         productoBuscador:"",
         medicamentosFiltrados: [],
         juguetesFiltrados:[],
         mostrar: true,
->>>>>>> main
     }
   },
 
