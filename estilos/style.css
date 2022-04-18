@@ -90,6 +90,10 @@ footer .titulo_footer {
   justify-content: center;
   padding-left: 5vw;
 }
+#divMensajeFormEnviado{
+  min-height: inherit;
+  width: inherit;
+}
 #formulario{
   min-width: 65vw;
   background-color: aqua;
