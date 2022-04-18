@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -7,25 +9,31 @@ body {
   height: 100vh;
 }
 header{
-    height:15%;
+    height:20vh;
     background-color: #2EC4B6;
+    font-family: 'Open Sans', sans-serif;
     
 }
 nav{
     height: 5%;
     width: 40%;
-}
-nav a{
 
+}
+nav a:hover{
     text-decoration: none;
+    color: white;
+    transition: 0.3s;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.671);
+
 }
 
 main {
-  min-height: 65%;
-  background-color: red;
+  min-height: 70vh;
+  background-color: white;
 }
 
 .card-title {
+  font-family: 'Open Sans', sans-serif;
   font-size: 15px;
 }
 
@@ -34,7 +42,7 @@ main {
   color: white;
 }
 footer{
-    min-height: 40%;
+    min-height: 40vh;
     padding: 1rem 2rem;
     background-color: #2ec4b6;
 }
@@ -44,6 +52,14 @@ footer a{
     text-decoration: none;
     margin: 1rem .5rem;
     cursor: pointer;
+}
+
+footer a:hover{
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.671);
+
 }
 
 #copy-rights {
@@ -62,6 +78,31 @@ footer .titulo_footer {
     background: #0df053;
     border-radius: 50%;
     box-shadow: 0px 1px 10px rgb(0,0,0,0.3);
+}
+
+#formulario{
+  min-width: 80vw;
+  background-color: aqua;
+
+}
+
+#tarjetas{
+  background-color: #CBF3F0 !important;
+  height: 70vh !important;
+  color: black !important;
+  
+}
+
+#tarjetas1{
+  background-color: #CBF3F0 !important;
+  color: black !important;
+}
+
+#caritaPerroFooter{
+
+  height: 15vh;
+  width: 9vw;
+
 }
 
 /* Barra de Navegacion */
@@ -212,3 +253,110 @@ footer .titulo_footer {
   border-color: #2EC4B6;
  }
  
+ /*estilo loader*/
+
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+/* creamos clase loader */
+.loader{
+  background-color:#2EC4B6;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 10;
+  clip-path: circle(141.4% at 100% 0);
+  transition:clip-path .5s ease-out;
+}
+
+/* cramos otro loader */
+.loader2{
+  clip-path: circle(0% at 100% 100%);
+}
+
