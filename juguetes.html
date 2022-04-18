@@ -162,14 +162,14 @@
                 </div>
                 <!-- <div class="productoAgotado d-flex justify-content-center align-items-center rounded"> Producto Agotado</div> -->
 
-                <h5 class="card-title">{{juguete.nombre}}</h5>
-                <p class="card-text">$ {{juguete.precio}}</p>
+                <p  class="card-title">{{juguete.nombre}}</p>
+              <h5  class="card-text">$ {{juguete.precio}}</h5>
                 <div class="btn-group dropend">
-                  <button class="btn btn-secondary btn-sm dropdown-toggle bg-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <button id="descripcionButton" class="btn btn-secondary btn-sm dropdown-toggle bg-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 
                     Ver descripcion
                   </button>
-                  <ul class="dropdown-menu" style="width: 300px;"> 
+                  <ul class="dropdown-menu" id="descripcionProduct" style="width: 300px;"> 
                     <li class="cart-text">{{juguete.descripcion}}</li>
                   </ul>
                 </div>
