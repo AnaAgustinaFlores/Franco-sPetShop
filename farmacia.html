@@ -15,8 +15,7 @@
 </head>
 <body>
   <div id="app">
-    <div class="lds-roller loader" id="loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-  </div>
+    <div class="lds-roller loader" id="loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 
     <header class="sticky-top">
       <div class="d-flex align-items-center h-100">
@@ -154,7 +153,7 @@
   <div class="d-flex justify-content-center">
 
     <div class="d-flex justify-content-between row gap-3 w-75 pb-5">
-      <div id="tarjetas1" class="card mt-5" style="width: 302px; height: 500px" v-for="medicamento in medicamentos">
+      <div id="tarjetas1" class="card mt-5" style="width: 302px; height: 500px" v-for="medicamento in medicamentosFiltrados">
         <img v-bind:src="medicamento.imagen" class="card-img-top align-self-center  pt-3" style="width: 250px; height: 250px;" alt="...">
 
 
