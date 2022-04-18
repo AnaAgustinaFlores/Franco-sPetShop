@@ -11,10 +11,15 @@ Vue.createApp({
         idDeProductosDeCarrito: [],
         ordenarProductosPorMenorStock: [],
         productosMenosStock: [],
+
+        productosFavoritos: [],
+        idDeFavoritos: [],
+
         productoBuscador:"",
         medicamentosFiltrados: [],
         juguetesFiltrados:[],
         mostrar: true,
+
     }
   },
 
@@ -25,16 +30,17 @@ Vue.createApp({
             this.productos = data.response
             document.querySelector("#loader").classList.toggle("loader2")
             this.productos.forEach(producto => producto.estadoAgregado = false)
+            this.productos.forEach(producto => producto.esFavorito = false)
             this.preservarDatosAlRecargar()
+            this.preservarDatosAlRecargarFavs()
+            this.productosMenorStock()
             this.juguetes = this.productos.filter(producto => producto.tipo.includes("Juguete"))
             this.medicamentos = this.productos.filter(producto => producto.tipo.includes("Medicamento"))
             this.carrito = JSON.parse(localStorage.getItem("carritoDeCompras"))!=null ? JSON.parse(localStorage.getItem("carritoDeCompras")) : []
-            this.ordenarProductosPorMenorStock = this.productos.sort(function(a,b){return a.stock - b.stock})
-            for(let i = 0; i < 4; i++){
-              this.productosMenosStock[i] = this.ordenarProductosPorMenorStock[i]
-            } 
+            this.productosFavoritos = JSON.parse(localStorage.getItem("favs"))!=null ? JSON.parse(localStorage.getItem("favs")) : []
             this.medicamentosFiltrados = this.medicamentos 
             this.juguetesFiltrados = this.juguetes
+
       })
   },
 
@@ -126,6 +132,54 @@ Vue.createApp({
       return indice
     },
 
+
+    productosMenorStock(){
+      this.ordenarProductosPorMenorStock = this.productos.sort(function(a,b){return a.stock - b.stock})
+      for(let i = 0; i < 4; i++){
+        this.productosMenosStock[i] = this.ordenarProductosPorMenorStock[i]
+      }   
+    },
+
+
+    preservarDatosAlRecargarFavs(){
+
+      if(JSON.parse(localStorage.getItem("favs")) !=null){
+        JSON.parse(localStorage.getItem("favs")).forEach(productoFav =>{
+          let cont = 0
+          while(cont < this.productos.length){
+            if(this.productos[cont]._id == productoFav._id){
+              this.productos[cont].esFavorito = true
+              cont = this.productos.length
+            }
+            cont++
+          }
+        })
+      }
+    },
+
+    agregarAFavoritos(producto){
+      this.idDeFavoritos = this.productosFavoritos.map(produc => produc._id)
+      if(!this.idDeFavoritos.includes(producto._id)){
+        this.productosFavoritos.push(producto)
+        localStorage.setItem("favs", JSON.stringify(this.productosFavoritos))
+        producto.esFavorito = true
+      }
+    },
+
+    borrarDeFavoritos(producto, arrayJuguetesOMedicamentos){
+      arrayJuguetesOMedicamentos.forEach(jugOMed =>{
+        if(producto._id == jugOMed._id){
+          jugOMed.esFavorito = false
+        }
+      })
+
+      this.productosFavoritos = this.productosFavoritos.filter(produc => produc._id != producto._id)
+      localStorage.setItem("favs", JSON.stringify(this.productosFavoritos))
+      producto.esFavorito = false
+    },
+  },
+
+  computed:{  
     buscadorMedicamentos(){
       if (!this.productoBuscador == ""){
         this.medicamentosFiltrados = this.medicamentos.filter(medicamento => medicamento.nombre.toUpperCase().includes(this.productoBuscador.toUpperCase()))
@@ -156,6 +210,7 @@ Vue.createApp({
 
   computed:{
    
+
   },   
 }).mount('#app')
 

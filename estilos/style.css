@@ -288,6 +288,53 @@ footer .titulo_footer {
   background-color: gray;
   border-color: rgba(128, 128, 128, 0.493);
  }
+
+
+/* boton agregar y boton quitar de favoritos  */ 
+#botonAgregarFav{
+  background-color:#2EC4B6;
+  border-color: #04aa6d;
+}
+#botonAgregarFav:hover {
+ background-color:#04aa6d;
+ border-color: #2EC4B6;
+}
+#botonAgregadoFav{
+  background-color:#04aa6d;
+  border-color: #2EC4B6;
+ }
+
+#botonQuitarFav{
+  background-color:red;
+  border-color: rgb(155, 52, 12);
+}
+#botonQuitarFav:hover{
+  background-color:rgb(230, 126, 66);
+  border-color: rgb(155, 52, 12);
+}
+#botonAgregarF{
+  background-color:#2EC4B6;
+  border-color: #04aa6d;
+}
+#botonAgregarF:hover {
+ background-color:#04aa6d;
+ border-color: #2EC4B6;
+}
+
+#botonAgregadoF{
+ background-color:#04aa6d;
+ border-color: #2EC4B6;
+}
+
+#botonSinStockF{
+  background-color:red;
+  border-color: #2EC4B6;
+ }
+
+.cardFav{
+  background-color: rgb(226, 99, 26);
+  color: white; 
+
  
  /*estilo loader*/
 
