@@ -1,58 +1,58 @@
 
 
 Vue.createApp({
-  
+
   data() {
     return {
-        productos: [],
-        juguetes: [],
-        medicamentos:[],
-        carrito: [],
-        idDeProductosDeCarrito: [],
-        ordenarProductosPorMenorStock: [],
-        productosMenosStock: [],
+      productos: [],
+      juguetes: [],
+      medicamentos: [],
+      carrito: [],
+      idDeProductosDeCarrito: [],
+      ordenarProductosPorMenorStock: [],
+      productosMenosStock: [],
 
-        productosFavoritos: [],
-        idDeFavoritos: [],
+      productosFavoritos: [],
+      idDeFavoritos: [],
 
-        productoBuscador:"",
-        medicamentosFiltrados: [],
-        juguetesFiltrados:[],
-        mostrar: true,
+      productoBuscador: "",
+      medicamentosFiltrados: [],
+      juguetesFiltrados: [],
+      mostrar: true,
 
     }
   },
 
-  created(){
-      fetch("https://apipetshop.herokuapp.com/api/articulos")
-          .then(response => response.json())
-          .then(data => {
-            this.productos = data.response
-            document.querySelector("#loader").classList.toggle("loader2")
-            this.productos.forEach(producto => producto.estadoAgregado = false)
-            this.productos.forEach(producto => producto.esFavorito = false)
-            this.preservarDatosAlRecargar()
-            this.preservarDatosAlRecargarFavs()
-            this.productosMenorStock()
-            this.juguetes = this.productos.filter(producto => producto.tipo.includes("Juguete"))
-            this.medicamentos = this.productos.filter(producto => producto.tipo.includes("Medicamento"))
-            this.carrito = JSON.parse(localStorage.getItem("carritoDeCompras"))!=null ? JSON.parse(localStorage.getItem("carritoDeCompras")) : []
-            this.productosFavoritos = JSON.parse(localStorage.getItem("favs"))!=null ? JSON.parse(localStorage.getItem("favs")) : []
-            this.medicamentosFiltrados = this.medicamentos 
-            this.juguetesFiltrados = this.juguetes
+  created() {
+    fetch("https://apipetshop.herokuapp.com/api/articulos")
+      .then(response => response.json())
+      .then(data => {
+        this.productos = data.response
+        document.querySelector("#loader").classList.toggle("loader2")
+        this.productos.forEach(producto => producto.estadoAgregado = false)
+        this.productos.forEach(producto => producto.esFavorito = false)
+        this.preservarDatosAlRecargar()
+        this.preservarDatosAlRecargarFavs()
+        this.productosMenorStock()
+        this.juguetes = this.productos.filter(producto => producto.tipo.includes("Juguete"))
+        this.medicamentos = this.productos.filter(producto => producto.tipo.includes("Medicamento"))
+        this.carrito = JSON.parse(localStorage.getItem("carritoDeCompras")) != null ? JSON.parse(localStorage.getItem("carritoDeCompras")) : []
+        this.productosFavoritos = JSON.parse(localStorage.getItem("favs")) != null ? JSON.parse(localStorage.getItem("favs")) : []
+        this.medicamentosFiltrados = this.medicamentos
+        this.juguetesFiltrados = this.juguetes
 
       })
   },
 
   methods: {
-    preservarDatosAlRecargar(){
+    preservarDatosAlRecargar() {
 
-      if(JSON.parse(localStorage.getItem("carritoDeCompras")) !=null){
-        JSON.parse(localStorage.getItem("carritoDeCompras")).forEach(productoCarrito =>{
+      if (JSON.parse(localStorage.getItem("carritoDeCompras")) != null) {
+        JSON.parse(localStorage.getItem("carritoDeCompras")).forEach(productoCarrito => {
           let cont = 0
-          while(cont < this.productos.length){
-            if(this.productos[cont]._id == productoCarrito._id){
-              this.productos[cont].stock = this.productos[cont].stock -1
+          while (cont < this.productos.length) {
+            if (this.productos[cont]._id == productoCarrito._id) {
+              this.productos[cont].stock = this.productos[cont].stock - 1
               this.productos[cont].estadoAgregado = true
               cont = this.productos.length
             }
@@ -61,58 +61,58 @@ Vue.createApp({
         })
       }
     },
-    aniadirACarrito(producto){
+    aniadirACarrito(producto) {
       producto.estadoAgregado = true
       this.idDeProductosDeCarrito = this.carrito.map(producto => producto._id)
-      if(!this.idDeProductosDeCarrito.includes(producto._id) && producto.stock > 0){
+      if (!this.idDeProductosDeCarrito.includes(producto._id) && producto.stock > 0) {
         producto.stock -= 1
         producto.unidadesAComprar = 1
         this.carrito.push(producto)
         localStorage.setItem("carritoDeCompras", JSON.stringify(this.carrito))
       }
     },
-    finalizarCompra(){
-      this.carrito.forEach(producto =>{
+    finalizarCompra() {
+      this.carrito.forEach(producto => {
         let indice = this.obtenerIndiceDeObjetoEnArray(this.productos, producto)
-        if(indice != -1){
+        if (indice != -1) {
           this.productos[indice].stock = this.productos[indice].stock - (producto.unidadesAComprar - 1)
           delete this.productos[indice].unidadesAComprar
           //mejor nombre pendiente(la idea es q si el stock del producto es > 0, muestre el boton agregar a carrito)
           this.evaluarEstadoDeAgregarACarrito(this.productos[indice])
-        }  
+        }
       })
       this.carrito = []
       localStorage.clear()
 
     },
-    evaluarEstadoDeAgregarACarrito(producto){
-      if(producto.stock > 0){
+    evaluarEstadoDeAgregarACarrito(producto) {
+      if (producto.stock > 0) {
         producto.estadoAgregado = false
       }
     },
-    aumentarUnidadesAComprar(producto){
-      if((producto.stock - producto.unidadesAComprar)>-1){
+    aumentarUnidadesAComprar(producto) {
+      if ((producto.stock - producto.unidadesAComprar) > -1) {
         producto.unidadesAComprar++
 
       }
     },
-    disminuirUnidadesAComprar(producto){
-      if(producto.unidadesAComprar > 0){
+    disminuirUnidadesAComprar(producto) {
+      if (producto.unidadesAComprar > 0) {
         producto.unidadesAComprar--
       }
     },
-    calcularSubtotal(producto){
+    calcularSubtotal(producto) {
       return producto.precio * producto.unidadesAComprar
     },
-    obtenerPrecioTotal(){
+    obtenerPrecioTotal() {
       let precioTotal = 0
       this.carrito.forEach(producto => precioTotal += this.calcularSubtotal(producto))
       return precioTotal
     },
-    eliminarDeCarrito(producto){
+    eliminarDeCarrito(producto) {
       let indiceDeProductoEnCarrito = this.obtenerIndiceDeObjetoEnArray(this.carrito, producto)
       let indiceDeProductoEnProductos = this.obtenerIndiceDeObjetoEnArray(this.productos, producto)
-      if(indiceDeProductoEnCarrito != -1){
+      if (indiceDeProductoEnCarrito != -1) {
         this.carrito.splice(indiceDeProductoEnCarrito, 1)
         localStorage.setItem("carritoDeCompras", JSON.stringify(this.carrito))
         this.productos[indiceDeProductoEnProductos].stock++
@@ -120,34 +120,34 @@ Vue.createApp({
       }
     },
     //retorna -1 si no encontro el objeto dentro del array(lo busca por id), o el indice del objeto dentro del array
-    obtenerIndiceDeObjetoEnArray(array, objeto){
+    obtenerIndiceDeObjetoEnArray(array, objeto) {
       let cont = 0
       let indice = -1
-      while(cont < array.length){
-        if(array[cont]._id == objeto._id){
+      while (cont < array.length) {
+        if (array[cont]._id == objeto._id) {
           indice = cont
           cont = array.length
-        }else{ cont ++ }
+        } else { cont++ }
       }
       return indice
     },
 
 
-    productosMenorStock(){
-      this.ordenarProductosPorMenorStock = this.productos.sort(function(a,b){return a.stock - b.stock})
-      for(let i = 0; i < 4; i++){
+    productosMenorStock() {
+      this.ordenarProductosPorMenorStock = this.productos.sort(function (a, b) { return a.stock - b.stock })
+      for (let i = 0; i < 4; i++) {
         this.productosMenosStock[i] = this.ordenarProductosPorMenorStock[i]
-      }   
+      }
     },
 
 
-    preservarDatosAlRecargarFavs(){
+    preservarDatosAlRecargarFavs() {
 
-      if(JSON.parse(localStorage.getItem("favs")) !=null){
-        JSON.parse(localStorage.getItem("favs")).forEach(productoFav =>{
+      if (JSON.parse(localStorage.getItem("favs")) != null) {
+        JSON.parse(localStorage.getItem("favs")).forEach(productoFav => {
           let cont = 0
-          while(cont < this.productos.length){
-            if(this.productos[cont]._id == productoFav._id){
+          while (cont < this.productos.length) {
+            if (this.productos[cont]._id == productoFav._id) {
               this.productos[cont].esFavorito = true
               cont = this.productos.length
             }
@@ -157,18 +157,18 @@ Vue.createApp({
       }
     },
 
-    agregarAFavoritos(producto){
+    agregarAFavoritos(producto) {
       this.idDeFavoritos = this.productosFavoritos.map(produc => produc._id)
-      if(!this.idDeFavoritos.includes(producto._id)){
+      if (!this.idDeFavoritos.includes(producto._id)) {
         this.productosFavoritos.push(producto)
         localStorage.setItem("favs", JSON.stringify(this.productosFavoritos))
         producto.esFavorito = true
       }
     },
 
-    borrarDeFavoritos(producto, arrayJuguetesOMedicamentos){
-      arrayJuguetesOMedicamentos.forEach(jugOMed =>{
-        if(producto._id == jugOMed._id){
+    borrarDeFavoritos(producto, arrayJuguetesOMedicamentos) {
+      arrayJuguetesOMedicamentos.forEach(jugOMed => {
+        if (producto._id == jugOMed._id) {
           jugOMed.esFavorito = false
         }
       })
@@ -177,42 +177,40 @@ Vue.createApp({
       localStorage.setItem("favs", JSON.stringify(this.productosFavoritos))
       producto.esFavorito = false
     },
-  },
-
-  computed:{  
-    buscadorMedicamentos(){
-      if (!this.productoBuscador == ""){
+    buscadorMedicamentos() {
+      if (!this.productoBuscador == "") {
         this.medicamentosFiltrados = this.medicamentos.filter(medicamento => medicamento.nombre.toUpperCase().includes(this.productoBuscador.toUpperCase()))
-      }else{
-        this.medicamentosFiltrados = this.medicamentos       
-    }
-    },
-
-    buscadorJuguetes(){
-      if (!this.productoBuscador == ""){
-        this.juguetesFiltrados = this.juguetes.filter(juguete => juguete.nombre.toUpperCase().includes(this.productoBuscador.toUpperCase()))
-      }else{
-        this.juguetesFiltrados = this.juguetes       
+      } else {
+        this.medicamentosFiltrados = this.medicamentos
       }
     },
-    mostrarMensajeDeENvioDeFormulario(){
+
+    buscadorJuguetes() {
+      if (!this.productoBuscador == "") {
+        this.juguetesFiltrados = this.juguetes.filter(juguete => juguete.nombre.toUpperCase().includes(this.productoBuscador.toUpperCase()))
+      } else {
+        this.juguetesFiltrados = this.juguetes
+      }
+    },
+    mostrarMensajeDeENvioDeFormulario() {
       this.mostrar = false
     },
-    mostrarFormulario(){
+    mostrarFormulario() {
       this.mostrar = true
       this.limpiarFormulario()
     },
 
-    limpiarFormulario(){
+    limpiarFormulario() {
       document.querySelector("form").reset()
     }
   },
 
-  computed:{
-   
+  computed: {
 
-  },   
+
+  },
+
 }).mount('#app')
 
-  
-  
+
+
