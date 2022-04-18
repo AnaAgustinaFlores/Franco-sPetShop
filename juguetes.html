@@ -141,7 +141,7 @@
 
               <!-- Favoritos -->
               <div v-if="productosFavoritos.length > 0">
-                <h3 class="d-flex justify-content-center mb-2">Mis productos favoritos:</h3>
+                <h3 class="d-flex justify-content-center mb-2">Mis favoritos</h3>
               <div class="d-flex justify-content-center">
                 <div class="d-flex justify-content-between row gap-3 w-75">
                   <div class="card cardFav mb-5" style="width: 302px; height: 550px" v-for="juguete in productosFavoritos">
@@ -161,7 +161,7 @@
       
                           Ver descripcion
                         </button>
-                        <ul class="dropdown-menu" style="width: 300px;"> 
+                        <ul class="dropdown-menu" style="width: 250vh;"> 
                           <li class="cart-text">{{juguete.descripcion}}</li>
                         </ul>
                       </div>

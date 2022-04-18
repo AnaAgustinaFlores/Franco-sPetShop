@@ -29,19 +29,11 @@ Vue.createApp({
             this.productos.forEach(producto => producto.esFavorito = false)
             this.preservarDatosAlRecargar()
             this.preservarDatosAlRecargarFavs()
+            this.productosMenorStock()
             this.juguetes = this.productos.filter(producto => producto.tipo.includes("Juguete"))
             this.medicamentos = this.productos.filter(producto => producto.tipo.includes("Medicamento"))
             this.carrito = JSON.parse(localStorage.getItem("carritoDeCompras"))!=null ? JSON.parse(localStorage.getItem("carritoDeCompras")) : []
-
-
             this.productosFavoritos = JSON.parse(localStorage.getItem("favs"))!=null ? JSON.parse(localStorage.getItem("favs")) : []
-
-            this.ordenarProductosPorMenorStock = this.productos.sort(function(a,b){return a.stock - b.stock})
-            for(let i = 0; i < 4; i++){
-              this.productosMenosStock[i] = this.ordenarProductosPorMenorStock[i]
-            }   
-
-            console.log(this.juguetes)
       })
   },
 
@@ -139,6 +131,14 @@ Vue.createApp({
       return indice
     },
 
+    productosMenorStock(){
+      this.ordenarProductosPorMenorStock = this.productos.sort(function(a,b){return a.stock - b.stock})
+      for(let i = 0; i < 4; i++){
+        this.productosMenosStock[i] = this.ordenarProductosPorMenorStock[i]
+      }   
+    },
+
+
     preservarDatosAlRecargarFavs(){
 
       if(JSON.parse(localStorage.getItem("favs")) !=null){
@@ -172,10 +172,8 @@ Vue.createApp({
       })
 
       this.productosFavoritos = this.productosFavoritos.filter(produc => produc._id != producto._id)
-      console.log(this.productosFavoritos)
       localStorage.setItem("favs", JSON.stringify(this.productosFavoritos))
       producto.esFavorito = false
-      console.log(producto)
     },
   },
 
