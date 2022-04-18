@@ -99,23 +99,24 @@
         <div id="divImagenContactanos">
           <img src="./images/imagenContactanos.png" id="imagenHorarios" alt="horarios de contacto">
         </div>
-        <div class="d-flex justify-content-center mt-3 p-3">
-          <form id="formulario" v-on:submit.prevent="mostrarMensajeDeENvioDeFormulario">
-          
-            <fieldset>
-              <div class="form-group">
-                <label for="formGroupExampleInput">Nombres</label>
-                <input type="name" class="form-control" id="formGroupExampleInput" placeholder="Escriba su/s nombre/s" required>
-              </div>
-              <div class="form-group">
-                <label for="formGroupExampleInput">Apellidos</label>
-                <input type="last name" class="form-control" id="formGroupExampleInput" placeholder="Escriba su/s apellido/s" required>
-              </div>
+       
+      <div class="d-flex justify-content-center mt-3 p-3" v-if="mostrar">
+        <form id="formulario" v-on:submit.prevent="mostrarMensajeDeENvioDeFormulario">
+        
+          <fieldset id="itemsFormulario">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Nombres</label>
+              <input type="name" class="form-control" id="formGroupExampleInput" placeholder="Escriba su/s nombre/s"  required>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Apellidos</label>
+              <input type="last name" class="form-control" id="formGroupExampleInput" placeholder="Escriba su/s apellido/s" required>
+            </div>
 
-              <div class="form-group">
-                <label for="formGroupExampleInput">Numero de telefono:</label>
-                <input type="tel" name="telefono" class="form-control"id="telefono" placeholder="Escriba su numero de telefono" required>
-              </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Numero de telefono:</label>
+              <input type="tel" name="telefono" class="form-control"id="telefono" placeholder="Escriba su numero de telefono" required>
+            </div>
 
               <div class="form-group row">
                 <div class="col-sm-10">¿Que mascota tenes?:</div>
@@ -135,15 +136,21 @@
                 </div>
               </div>
 
-              <div class="form-group" >
-                <label for="exampleFormControlTextarea1">Escribinos un comentario:</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-              </div>
-              
-              <input type="submit" value="Enviar" >
-            </fieldset>
-          </form>
-        </div>
+
+            <div class="form-group" >
+              <label for="exampleFormControlTextarea1">Escribinos un comentario:</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            
+            <input id="enviarFormulario" type="submit" value="Enviar" class="rounded" >
+          </fieldset>
+        </form>
+      </div>
+      <div v-else>
+        <p>gracias, a decorar</p>
+        <button v-on:click="mostrarFormulario">cerrar</button>
+
+
       </div>
 
       <div v-else class="d-flex flex-column justify-content-center align-items-center" id="divMensajeFormEnviado">
