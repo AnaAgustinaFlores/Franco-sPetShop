@@ -7,10 +7,13 @@
 }
 body {
   height: 100vh;
+  width: 100vw;
 }
 header{
-    height:20vh;
+    min-height: 20vh;
+    min-width: 100% !important;
     background-color: #2EC4B6;
+    background-size: 100% !important;
     font-family: 'Open Sans', sans-serif;
     
 }
@@ -43,6 +46,7 @@ main {
 }
 footer{
     min-height: 40vh;
+    min-width: 100vw;
     padding: 1rem 2rem;
     background-color: #2ec4b6;
 }
@@ -80,8 +84,8 @@ footer .titulo_footer {
     box-shadow: 0px 1px 10px rgb(0,0,0,0.3);
 }
 #divGeneralContacto{
-
   display: flex;
+  gap: 5vw;
 }
 #divImagenContactanos{
 
@@ -91,9 +95,7 @@ footer .titulo_footer {
   padding-left: 5vw;
 }
 #formulario{
-  min-width: 65vw;
-  background-color: aqua;
-
+  min-width: 50vw;
 }
 
 #tarjetas{
@@ -117,13 +119,33 @@ footer .titulo_footer {
 }
 #caritaPerroFooter{
 
-  height: 15vh;
-  width: 9vw;
+  max-height: 150px;
+  max-width: 90px;
 
+}
+
+#enviarFormulario{
+  border: none;
+  font-size: 2.5vh;
+  letter-spacing: .1vw;
+  padding: .2vw;
+  background-color: #FF9F1C;
+}
+
+#enviarFormulario:hover{
+  background-color: #FFBF69;
+  transition: 0.3s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.671);
 }
 
 #descripcionButton{
   background-color: #2EC4B6 !important;
+  outline: none;
+  border: none;
+}
+
+#descripcionButton:hover{
+  background-color: #2ec4b5cc !important;
 }
 
 #descripcionProduct{
@@ -190,10 +212,39 @@ footer .titulo_footer {
   background-color: #FFBF69 !important;
 }
 
-.logo{
-    height: 80px;
-    width: 80px;
+#boxBuscador{
+ gap: 10vw;
 }
+#boxBuscador:hover{
+  transition: 0.3s;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.671);
+}
+
+#botonBuscar{
+  border: none;
+  font-size: 2.5vh;
+  letter-spacing: .1vw;
+  padding: .2vw;
+  background-color: #FF9F1C;
+}
+#botonBuscar:hover{
+  background-color: #FFBF69;
+  transition: 0.3s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.671);
+}
+
+#inputBuscar{
+  border: none;
+  outline: none;
+  height: 4.5vh;
+}
+
+#inputBuscar:hover{
+  transition: 0.3s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.671);
+}
+
+
 #divmailcarrito{
     width: 30%;
 }
@@ -211,10 +262,7 @@ footer .titulo_footer {
 
 
 
-.logopetshop{
-    height: 100px;
-    width: 350px;
-}
+
 
 /* cartel animado de poco stock */
 .producto {
@@ -229,7 +277,7 @@ footer .titulo_footer {
   }
   @keyframes example {
     0% {
-      background-color: white;
+      background-color: #CBF3F0;
     }
   
     50% {
@@ -238,7 +286,7 @@ footer .titulo_footer {
     }
   
     100% {
-      background-color: white;
+      background-color: #CBF3F0;
     }
   }
   

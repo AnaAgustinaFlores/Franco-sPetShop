@@ -55,10 +55,11 @@
 
         <!-- iconos mail y carrito -->
         <div id="divmailcarrito" class="d-flex justify-content-end ">
+          <form>
 
-          <form >
-            <input v-model="productoBuscador" type="text">
-              <button  v-on:click.prevent="buscadorJuguetes">Buscar</button>
+          <form id="boxBuscador">
+            <input id="inputBuscar" v-model="productoBuscador" type="text" class="rounded">
+              <button id="botonBuscar" v-on:click.prevent="buscadorJuguetes" aria-label="Close" class="rounded" >Buscar</button>
           </form>
 
           <a href="mailto:francopetshop@gmail.com" target="_blank"
@@ -146,7 +147,7 @@
                   </div>
                   <!-- boton de Finalizar Compra -->
                   <div class="d-flex justify-content-center align-items-center mt-1">
-                    <button class="btn btn-primary " data-bs-dismiss="offcanvas" aria-label="Close" v-on:click="finalizarCompra">Finalizar Compra</button>
+                    <button id="botonFinalizarCompra" class="btn" data-bs-dismiss="offcanvas" aria-label="Close" v-on:click="finalizarCompra">Finalizar Compra</button>
                   </div>
 
                 </div>
