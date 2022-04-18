@@ -7,17 +7,15 @@ Vue.createApp({
         productos: [],
         juguetes: [],
         medicamentos:[],
-        mostrarSaludo: false,
         carrito: [],
         idDeProductosDeCarrito: [],
-        checkBoxesMascotas: [],//creo q no se usa
-        valor: 1,
-        count: 0,
         ordenarProductosPorMenorStock: [],
         productosMenosStock: [],
-
-  
-
+        mostrar: false,
+        checkBoxesMascotas: [],
+        nombresForm: "",
+        apellidosForm: "",
+        telefonoForm: ""
     }
   },
 
@@ -56,12 +54,6 @@ Vue.createApp({
         })
       }
     },
-    mostrarCartelito(){
-      this.mostrarSaludo = true
-    },
-    mostrarFormulario(){
-      this.mostrarSaludo = false
-    },
     aniadirACarrito(producto){
       producto.estadoAgregado = true
       this.idDeProductosDeCarrito = this.carrito.map(producto => producto._id)
@@ -94,6 +86,7 @@ Vue.createApp({
     aumentarUnidadesAComprar(producto){
       if((producto.stock - producto.unidadesAComprar)>-1){
         producto.unidadesAComprar++
+
       }
     },
     disminuirUnidadesAComprar(producto){
@@ -130,10 +123,20 @@ Vue.createApp({
         }else{ cont ++ }
       }
       return indice
-    }
+    },
+    limpiarFormulario(){
+      
+      document.querySelector("form").reset()
+      this.mostrar = false
+      this.checkBoxesMascotas = []
+    },
+    
   },
   computed:{
-    
+    mostrarCartelito(){
+      this.mostrar = true
+      console.log(this.mostrar)
+    },
   },   
 }).mount('#app')
 

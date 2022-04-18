@@ -16,98 +16,96 @@
 <body>
   <div id="app">
 
-  <header class="sticky-top">
-    <div class="d-flex align-items-center h-100">
+    <header class="sticky-top">
+      <div class="d-flex align-items-center h-100">
 
-        
-        
-        <nav class="d-flex align-items-center justify-content-center">
-                    <div class="dropdown">
-                        <a href="./index.html" class="dropbtn">Home</a>
-                    </div>
-                    <div class="dropdown">
-                        <a href="./farmacia.html" class="dropbtn">Farmacia</a>
-                        <div class="dropdown-content">
-                            <a href="./farmacia.html">Antipulgas</a>
-                            <a href="./farmacia.html">Antiparasitario</a>
-                            <a href="./farmacia.html">Pipetas</a>
-                            <a href="./farmacia.html">Suplementos</a>
-                        </div>
-                    </div>
-            <div class="dropdown">
-                <a href="./juguetes.html" class="dropbtn">Juguetes</a>
-                <div class="dropdown-content">
-                    <a href="./juguetes.html">Pelotas</a>
-                    <a href="./juguetes.html">Cuerdas</a>
-                    <a href="./juguetes.html">Bebederos</a>
-                    <a href="./juguetes.html">Frisbees</a>
-                </div>
-            </div>
-            <div>
-                <a href="#" class="dropbtn">ContactUS</a>
-            </div>
-        </nav>
-        <div class="divlogopetsohop">
-          <!-- <h1>Franco PetShop</h1> -->
-          <img class="logopetshop" src="./images/logo franco pet shop blanco.png" alt="">
+          
+          
+          <nav class="d-flex align-items-center justify-content-center">
+                      <div class="dropdown">
+                          <a href="./index.html" class="dropbtn">Home</a>
+                      </div>
+                      <div class="dropdown">
+                          <a href="./farmacia.html" class="dropbtn">Farmacia</a>
+                          <div class="dropdown-content">
+                              <a href="./farmacia.html">Antipulgas</a>
+                              <a href="./farmacia.html">Antiparasitario</a>
+                              <a href="./farmacia.html">Pipetas</a>
+                              <a href="./farmacia.html">Suplementos</a>
+                          </div>
+                      </div>
+              <div class="dropdown">
+                  <a href="./juguetes.html" class="dropbtn">Juguetes</a>
+                  <div class="dropdown-content">
+                      <a href="./juguetes.html">Pelotas</a>
+                      <a href="./juguetes.html">Cuerdas</a>
+                      <a href="./juguetes.html">Bebederos</a>
+                      <a href="./juguetes.html">Frisbees</a>
+                  </div>
+              </div>
+              <div>
+                  <a href="#" class="dropbtn">ContactUS</a>
+              </div>
+          </nav>
+          <div class="divlogopetsohop">
+            <!-- <h1>Franco PetShop</h1> -->
+            <img class="logopetshop" src="./images/logo franco pet shop blanco.png" alt="">
+          </div>
+              
+
+              <!-- iconos mail y carrito -->
+              <div id="divmailcarrito" class="d-flex justify-content-end ">
+                  <a  href="mailto:francopetshop@gmail.com" target="_blank"
+                  class="dropbtn"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <rect x="3" y="5" width="18" height="14" rx="2" />
+                      <polyline points="3 7 12 13 21 7" />
+                    </svg></a>
+
+              <a  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <circle cx="6" cy="19" r="2" />
+                  <circle cx="17" cy="19" r="2" />
+                  <path d="M17 17h-11v-14h-2" />
+                  <path d="M6 5l14 1l-1 7h-13" />
+                </svg></a>
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                  <div class="offcanvas-body">
+              <div class="offcanvas-header">
+                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+                  <table class="table table-hover">
+                          <h5 id="offcanvasRightLabel">Carrito</h5>
+                          <thead>
+                            <tr>
+                              <th scope="col">Nombre</th>
+                              <th scope="col">Precio</th>
+                              <th scope="col">Unidades</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            
+                          </tbody>
+                        </table>
+              </div>
+                  </div>
+              </div>
       </div>
-            
-
-            <!-- iconos mail y carrito -->
-            <div id="divmailcarrito" class="d-flex justify-content-end ">
-                <a  href="mailto:francopetshop@gmail.com" target="_blank"
-                class="dropbtn"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <rect x="3" y="5" width="18" height="14" rx="2" />
-                    <polyline points="3 7 12 13 21 7" />
-                  </svg></a>
-
-            <a  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <circle cx="6" cy="19" r="2" />
-                <circle cx="17" cy="19" r="2" />
-                <path d="M17 17h-11v-14h-2" />
-                <path d="M6 5l14 1l-1 7h-13" />
-              </svg></a>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                <div class="offcanvas-body">
-            <div class="offcanvas-header">
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-                <table class="table table-hover">
-                        <h5 id="offcanvasRightLabel">Carrito</h5>
-                        <thead>
-                          <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Unidades</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                        </tbody>
-                      </table>
-            </div>
-                </div>
-            </div>
-    </div>
-</header>
-  <main>
-
-
-      <div class="d-flex justify-content-center" v-if="mostrarSaludo == false">
-        <form v-on:submit.prevent="mostrarCartelito">
+    </header>
+    <main>
+      <div class="d-flex justify-content-center">
+        <form v-on:submit.prevent="">
           <fieldset>
             <legend>Nombres:</legend>
-            <input type="text" name="nombres" id="nombres" >
+            <input type="text" name="nombres" id="nombres" v-model="nombresForm">
           </fieldset>
           <fieldset>
             <legend>Apellidos:</legend>
-            <input type="text" name="apellidos" id="apellidos" >
+            <input type="text" name="apellidos" id="apellidos" v-model="apellidosForm">
           </fieldset>
           <fieldset>
             <legend>Telefono:</legend>
-            <input type="tel" name="telefono" id="telefono" >
+            <input type="tel" name="telefono" id="telefono" v-model="telefonoForm">
           </fieldset>
           <fieldset>
             <legend>Que mascota tenes?</legend>
@@ -130,14 +128,15 @@
           <input type="submit" value="Enviar" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
           
         </form>
-      </div>
+    
       
       <!-- Modal -->
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" v-if="mostrar">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" v-on:click="mostrarFormulario"></button>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" v-on:click="limpiarFormulario"></button>
             </div>
             <div class="modal-body d-flex flex-column align-items-center">
               <p>Datos Enviados</p>
@@ -146,9 +145,10 @@
           </div>
         </div>
       </div>
+        
       
-    </div>
-  </main>
+    </main>
+  </div>
   <a href="https://www.instagram.com/mindhub_la/" class="btn-wsp position-fixed d-flex align-items-center justify-content-center" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
     <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
