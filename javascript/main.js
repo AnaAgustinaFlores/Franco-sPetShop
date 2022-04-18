@@ -13,7 +13,8 @@ Vue.createApp({
         productosMenosStock: [],
         productoBuscador:"",
         medicamentosFiltrados: [],
-        juguetesFiltrados:[]
+        juguetesFiltrados:[],
+        mostrar: true,
     }
   },
 
@@ -41,7 +42,6 @@ Vue.createApp({
     preservarDatosAlRecargar(){
 
       if(JSON.parse(localStorage.getItem("carritoDeCompras")) !=null){
-        console.log("entro")
         JSON.parse(localStorage.getItem("carritoDeCompras")).forEach(productoCarrito =>{
           let cont = 0
           while(cont < this.productos.length){
@@ -125,14 +125,6 @@ Vue.createApp({
       }
       return indice
     },
-<<<<<<< HEAD
-    limpiarFormulario(){
-      
-      document.querySelector("form").reset()
-      this.mostrar = false
-      this.checkBoxesMascotas = []
-    },
-=======
 
     buscadorMedicamentos(){
       if (!this.productoBuscador == ""){
@@ -147,16 +139,23 @@ Vue.createApp({
         this.juguetesFiltrados = this.juguetes.filter(juguete => juguete.nombre.toUpperCase().includes(this.productoBuscador.toUpperCase()))
       }else{
         this.juguetesFiltrados = this.juguetes       
-    }
-    }
->>>>>>> main
-    
-  },
-  computed:{
-    mostrarCartelito(){
-      this.mostrar = true
-      console.log(this.mostrar)
+      }
     },
+    mostrarMensajeDeENvioDeFormulario(){
+      this.mostrar = false
+    },
+    mostrarFormulario(){
+      this.mostrar = true
+      this.limpiarFormulario()
+    },
+
+    limpiarFormulario(){
+      document.querySelector("form").reset()
+    }
+  },
+
+  computed:{
+   
   },   
 }).mount('#app')
 
