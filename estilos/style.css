@@ -249,11 +249,6 @@ footer .titulo_footer {
 }
 
 #botonSinStock{
-<<<<<<< HEAD
-  background-color:#6f81e3;
-  border-color: #2EC4B6;
- }
-=======
   background-color:red;
   border-color: #2EC4B6;
  }
@@ -365,4 +360,3 @@ footer .titulo_footer {
   clip-path: circle(0% at 100% 100%);
 }
 
->>>>>>> main
