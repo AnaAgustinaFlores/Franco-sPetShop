@@ -7,16 +7,19 @@ Vue.createApp({
         productos: [],
         juguetes: [],
         medicamentos:[],
-        mostrarSaludo: false,
         carrito: [],
         idDeProductosDeCarrito: [],
-        checkBoxesMascotas: [],//creo q no se usa
-        valor: 1,
-        count: 0,
         ordenarProductosPorMenorStock: [],
         productosMenosStock: [],
+
         productosFavoritos: [],
         idDeFavoritos: [],
+
+        productoBuscador:"",
+        medicamentosFiltrados: [],
+        juguetesFiltrados:[],
+        mostrar: true,
+
     }
   },
 
@@ -25,6 +28,7 @@ Vue.createApp({
           .then(response => response.json())
           .then(data => {
             this.productos = data.response
+            document.querySelector("#loader").classList.toggle("loader2")
             this.productos.forEach(producto => producto.estadoAgregado = false)
             this.productos.forEach(producto => producto.esFavorito = false)
             this.preservarDatosAlRecargar()
@@ -34,6 +38,9 @@ Vue.createApp({
             this.medicamentos = this.productos.filter(producto => producto.tipo.includes("Medicamento"))
             this.carrito = JSON.parse(localStorage.getItem("carritoDeCompras"))!=null ? JSON.parse(localStorage.getItem("carritoDeCompras")) : []
             this.productosFavoritos = JSON.parse(localStorage.getItem("favs"))!=null ? JSON.parse(localStorage.getItem("favs")) : []
+            this.medicamentosFiltrados = this.medicamentos 
+            this.juguetesFiltrados = this.juguetes
+
       })
   },
 
@@ -41,7 +48,6 @@ Vue.createApp({
     preservarDatosAlRecargar(){
 
       if(JSON.parse(localStorage.getItem("carritoDeCompras")) !=null){
-        console.log("entro")
         JSON.parse(localStorage.getItem("carritoDeCompras")).forEach(productoCarrito =>{
           let cont = 0
           while(cont < this.productos.length){
@@ -54,12 +60,6 @@ Vue.createApp({
           }
         })
       }
-    },
-    mostrarCartelito(){
-      this.mostrarSaludo = true
-    },
-    mostrarFormulario(){
-      this.mostrarSaludo = false
     },
     aniadirACarrito(producto){
       producto.estadoAgregado = true
@@ -93,6 +93,7 @@ Vue.createApp({
     aumentarUnidadesAComprar(producto){
       if((producto.stock - producto.unidadesAComprar)>-1){
         producto.unidadesAComprar++
+
       }
     },
     disminuirUnidadesAComprar(producto){
@@ -130,6 +131,7 @@ Vue.createApp({
       }
       return indice
     },
+
 
     productosMenorStock(){
       this.ordenarProductosPorMenorStock = this.productos.sort(function(a,b){return a.stock - b.stock})
@@ -178,6 +180,37 @@ Vue.createApp({
   },
 
   computed:{  
+    buscadorMedicamentos(){
+      if (!this.productoBuscador == ""){
+        this.medicamentosFiltrados = this.medicamentos.filter(medicamento => medicamento.nombre.toUpperCase().includes(this.productoBuscador.toUpperCase()))
+      }else{
+        this.medicamentosFiltrados = this.medicamentos       
+    }
+    },
+
+    buscadorJuguetes(){
+      if (!this.productoBuscador == ""){
+        this.juguetesFiltrados = this.juguetes.filter(juguete => juguete.nombre.toUpperCase().includes(this.productoBuscador.toUpperCase()))
+      }else{
+        this.juguetesFiltrados = this.juguetes       
+      }
+    },
+    mostrarMensajeDeENvioDeFormulario(){
+      this.mostrar = false
+    },
+    mostrarFormulario(){
+      this.mostrar = true
+      this.limpiarFormulario()
+    },
+
+    limpiarFormulario(){
+      document.querySelector("form").reset()
+    }
+  },
+
+  computed:{
+   
+
   },   
 }).mount('#app')
 
