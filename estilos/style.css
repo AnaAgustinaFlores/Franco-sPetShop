@@ -7,7 +7,6 @@
 }
 body {
   height: 100vh;
-  width: 100vw;
 }
 header{
     min-height: 20vh;
@@ -15,7 +14,8 @@ header{
     background-color: #2EC4B6;
     background-size: 100% !important;
     font-family: 'Open Sans', sans-serif;
-    
+    padding-bottom: 1rem;
+    padding-top: 1rem;
 }
 nav{
     height: 5%;
@@ -24,7 +24,7 @@ nav{
 }
 nav a:hover{
     text-decoration: none;
-    color: white;
+    color: white !important;
     transition: 0.3s;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.671);
 
@@ -41,9 +41,12 @@ main {
 }
 
 
+.divlogopetsohop{
+  max-width: 400px;
+}
+
 footer{
-    min-height: 40vh;
-    min-width: 100vw;
+   /*  min-height: 40vh; */
     padding: 1rem 2rem;
     background-color: #2ec4b6;
 }
@@ -51,7 +54,7 @@ footer{
 footer a{
     color: black;
     text-decoration: none;
-    margin: 1rem .5rem;
+    /* margin: 1rem .5rem; */
     cursor: pointer;
 }
 
@@ -63,8 +66,8 @@ footer a:hover{
 
 }
 
-#copy-rights {
-    width: 100vw;
+#divcopyrights {
+    width: 100%;
 }
 
 footer .titulo_footer {
@@ -86,9 +89,7 @@ footer .titulo_footer {
 }
 #divImagenContactanos{
 
-  width: 30vw;
-  display: flex;
-  justify-content: center;
+
   padding-left: 5vw;
 }
 #divMensajeFormEnviado{
@@ -98,7 +99,9 @@ footer .titulo_footer {
 #formulario{
   min-width: 50vw;
 }
-
+#divformulario{
+  min-height: inherit;
+}
 #tarjetas{
   background-color: #CBF3F0 !important;
   /* height: 70vh !important; */
@@ -120,7 +123,7 @@ footer .titulo_footer {
 }
 
 #tarjetaFav{
-  background-color: rgb(226, 99, 26);
+  background-color: #FF9F1C;
   color: white; 
 }
 
@@ -165,48 +168,7 @@ footer .titulo_footer {
   
 }
 
-/* Barra de Navegacion */
-.dropbtn {
-    /* background-color: #04AA6D; */
-    color: black;
-    /* padding: 16px; */
-    font-size: 16px;
-    border: none;
-    text-decoration: none;
-    padding-left: 1vw;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #cbf3f096;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #04aa6d;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
 
 
 
@@ -223,15 +185,13 @@ footer .titulo_footer {
   background-color: #FFBF69 !important;
 }
 
-#boxBuscador{
- gap: 10vw;
-}
+
 #boxBuscador:hover{
   transition: 0.3s;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.671);
 }
 
-#botonBuscar{
+.botonBuscar{
   border: none;
   font-size: 2.5vh;
   letter-spacing: .1vw;
@@ -281,14 +241,14 @@ footer .titulo_footer {
   
     width: 60%;
     height: 15%;
-    animation-name: example;
+    animation-name: example; 
     animation-duration: 4s;
     animation-iteration-count: infinite;
     text-shadow: 0px 0px 2px black;
   }
   @keyframes example {
     0% {
-      background-color: #CBF3F0;
+      background-color: none;
     }
   
     50% {
@@ -297,7 +257,7 @@ footer .titulo_footer {
     }
   
     100% {
-      background-color: #CBF3F0;
+      background-color: none;
     }
   }
   
@@ -496,32 +456,38 @@ footer .titulo_footer {
 }
 
 .offcanvas-end{
-  width: 50vw !important;
+  min-width: 50vw !important;
 }
 
 /* --------------- Texto animado ------------*/
-#textoAnimado{
+.textoAnimado{
 
-  width: 100;
-  height: 15vh;
+  width: 100%;
+  height: 5vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2vh;
+  margin-top: 5vh;
 }
 h6{
+    width: 100%;
     background: linear-gradient(90deg,#CBF3F0, #2EC4B6, #FF9F1C, #FFBF69);
     background-size: 400%;
     background-position: -100%;
-    font-size: 10vh;
+    font-size: 5vh;
     font-family: 'Secular One', sans-serif;
-    letter-spacing: 2px;
+    letter-spacing: 0.75vw;
     font-weight: 100;
-    word-spacing: 3px;
+    word-spacing: 3vw;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: animate 4s linear infinite;
+    text-align: center;
+}
+
+#tarjetitas{
+  width: 100%;
 }
 
 @keyframes animate{
@@ -535,4 +501,9 @@ h6{
 
 .textoCentrado{
   text-align: center;
+}
+
+
+.modal-body , .modal-header{
+  background-color: #CBF3F0;
 }

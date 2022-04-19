@@ -1,226 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/x-icon" href="/images/faviconperrito.ico">
   <title>Farmacia</title>
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-    crossorigin="anonymous"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
   <link rel="stylesheet" href="./estilos/style.css">
 </head>
+
 <body>
   <div id="app">
-    <div class="lds-roller loader" id="loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <div class="lds-roller loader" id="loader">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
 
-   <!--  <header class="sticky-top">
-      <div class="d-flex align-items-center h-100">
-        <nav class="d-flex align-items-center justify-content-center">
-                    <div class="dropdown">
-                        <a href="./index.html" class="dropbtn">Home</a>
-                    </div>
-                    <div class="dropdown">
-                        <a href="./farmacia.html" class="dropbtn">Farmacia</a>
-                        <div class="dropdown-content">
-                            <a href="./farmacia.html">Antipulgas</a>
-                            <a href="./farmacia.html">Antiparasitario</a>
-                            <a href="./farmacia.html">Pipetas</a>
-                            <a href="./farmacia.html">Suplementos</a>
-                        </div>
-                    </div>
-            <div class="dropdown">
-                <a href="./juguetes.html" class="dropbtn">Juguetes</a>
-                <div class="dropdown-content">
-                    <a href="./juguetes.html">Pelotas</a>
-                    <a href="./juguetes.html">Cuerdas</a>
-                    <a href="./juguetes.html">Bebederos</a>
-                    <a href="./juguetes.html">Frisbees</a>
-                </div>
-            </div>
-            <div>
-                <a href="./contacto.html" class="dropbtn">Contacto</a>
-            </div>
-        </nav>
-        <div class="divlogopetsohop">
- 
-          <img class="logopetshop" src="./images/logo_con_texto_naranja_patitas.png" alt="Logo Franco Pet">
-      </div>
-              
 
-      
-        <div id="divmailcarrito" class="d-flex justify-content-end ">
+    <header class="sticky-top d-flex align-items-center container-fluid">
+      <div class=" h-100  w-100  d-flex align-items-center justify-content-between row">
 
-       
-
-        
-          <form id="boxBuscador">
-            <input id="inputBuscar" v-model="productoBuscador" type="text" class="rounded">
-              <button id="botonBuscar" v-on:click.prevent="buscadorMedicamentos" class="rounded">Buscar</button>
-          </form>
-
-          
-
-          <a href="mailto:francopetshop@gmail.com" target="_blank"
-          class="dropbtn"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <rect x="3" y="5" width="18" height="14" rx="2" />
-              <polyline points="3 7 12 13 21 7" />
-            </svg>
-          </a>
-
-          <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <circle cx="6" cy="19" r="2" />
-              <circle cx="17" cy="19" r="2" />
-              <path d="M17 17h-11v-14h-2" />
-              <path d="M6 5l14 1l-1 7h-13" />
-            </svg>
-          </a>
-          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-
-              <div class="offcanvas-body">
-               
-                <div v-if="carrito.length == 0">
-                  <div class="offcanvas-header">
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                  </div>
-                  <table class="table table-hover">
-                    <h5 id="offcanvasRightLabel">Carrito</h5>
-                    <thead>
-                      <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Unidades</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      
-                    </tbody>
-                  </table>
-                </div>
-
-                <div v-else>
-                  <div class="offcanvas-header">
-                      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                  </div>
-                  <table class="table table-hover">
-                    <h5 id="offcanvasRightLabel">Carrito</h5>
-                    <thead>
-                      <tr>
-                        <th scope="col">Nombre de producto</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Unidades</th>
-                        <th scope="col">Subtotal</th>
-                        <th scope="col">Eliminar</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr v-for="producto in carrito">
-                        <td>{{producto.nombre}}</td>
-                        <td>{{producto.precio}}</td>
-                        <td>
-                          <div id="contador" class="d-flex">
-                            <button v-on:click="disminuirUnidadesAComprar(producto)">-</button>
-                            <input type="text" :value="producto.unidadesAComprar">
-                            <button v-on:click="aumentarUnidadesAComprar(producto)">+</button>
-                          </div>
-                        </td>
-
-                        <td>{{calcularSubtotal(producto)}}</td>
-                        <td>
-                          <button v-on:click="eliminarDeCarrito(producto)">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                              <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
-                            </svg>
-                          </button>
-                        </td>
-                      </tr>
-
-                    </tbody>
-                  </table>
-                  <div class="d-flex gap-3 justify-content-center align-items-baseline">
-                    <h3>Precio Total:</h3>
-                    <p class="m-0 p-0 fs-3">{{obtenerPrecioTotal()}}</p>
-                  </div>
-                 
-                  <div class="d-flex justify-content-center align-items-center mt-1">
-                    <button id="botonFinalizarCompra" class="btn  " data-bs-dismiss="offcanvas" aria-label="Close" v-on:click="finalizarCompra">Finalizar Compra</button>
-                  </div>
-
-                </div>
-
-              </div>
-          </div>
-        </div>
-      </div>
-    </header> -->
-    <header class="sticky-top container-fluid">
-      <div class=" h-100 w-100 d-flex align-items-center  row">
-
-        <div class="col-md-2 col-lg-4">
+        <div class="d-flex align-items-center col-md-6 col-lg-4">
 
           <nav class="navbar navbar-expand-lg navbar-light ">
             <div class="container-fluid">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-            <div  class="collapse navbar-collapse " id="navbarTogglerDemo02">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Farmacia</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./juguetes.html">Juguetes</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./contacto.html">Contacto</a>
-                </li>
-              </ul>
-              
+              <div class="collapse navbar-collapse " id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="./index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Farmacia</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./juguetes.html">Juguetes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./contacto.html">Contacto</a>
+                  </li>
+                </ul>
+
+              </div>
             </div>
-          </div>
-        </nav>
-      </div>
-      
-      
-      <div class=" col-md-6 col-lg-4 ">
+          </nav>
+        </div>
+
+
+        <div class="divlogopetsohop  col-md-6 col-lg-4 ">
           <img class="img-fluid" src="./images/logo_con_texto_naranja_patitas.png" alt="Logo Franco Pet">
- 
-      </div>
-              
+
+        </div>
+
 
         <!-- iconos mail y carrito -->
-        <div  class=" d-flex col-md-4 col-lg-4 col-sm-12">
-
-       
+        <div class=" d-flex  align-items-center justify-content-center col-md-12 col-lg-4 col-sm-12">
 
 
-          <form >
-            <input v-model="productoBuscador" type="text">
-              <button  v-on:click.prevent="buscadorMedicamentos">Buscar</button>
+
+
+          <form class="d-flex align-items-center justify-content-center gap-1" id="boxBuscador">
+            <input id="inputBuscar" v-model="productoBuscador" type="text" class="rounded">
+            <button class="botonBuscar" v-on:click.prevent="buscadorMedicamentos" aria-label="Close"
+              class="rounded">Buscar</button>
           </form>
 
-          
 
-          <a href="mailto:francopetshop@gmail.com" target="_blank"
-          class="dropbtn"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+
+          <a href="mailto:francopetshop@gmail.com" target="_blank" class="dropbtn"><svg
+              xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="32" height="32"
+              viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <rect x="3" y="5" width="18" height="14" rx="2" />
               <polyline points="3 7 12 13 21 7" />
             </svg>
           </a>
 
           <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="32"
+              height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <circle cx="6" cy="19" r="2" />
               <circle cx="17" cy="19" r="2" />
               <path d="M17 17h-11v-14h-2" />
@@ -229,240 +103,279 @@
           </a>
           <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
 
-              <div class="offcanvas-body">
-                se puede mandar uno de los modales bonitos q indique q el carrito esta vacio,o un div mas bonito, reemplazando este div de v-if
-                <div v-if="carrito.length == 0">
-                  <div class="offcanvas-header">
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                  </div>
-                  <p>carrito vacio</p>
+            <div class="offcanvas-body container-fluid">
+              <div v-if="carrito.length == 0">
+                <div class="offcanvas-header">
+                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
                 </div>
+                <table class="table table-hover">
+                  <h5 id="offcanvasRightLabel">Carrito</h5>
+                  <thead>
+                    <tr>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Precio</th>
+                      <th scope="col">Unidades</th>
+                    </tr>
+                  </thead>
+                  <tbody>
 
-                <div v-else>
-                  <div class="offcanvas-header">
-                      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                  </div>
-                  <table class="table table-hover">
-                    <h5 id="offcanvasRightLabel">Carrito</h5>
-                    <thead>
-                      <tr>
-                        <th scope="col">Nombre de producto</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Unidades</th>
-                        <th scope="col">Subtotal</th>
-                        <th scope="col">Eliminar</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr v-for="producto in carrito">
-                        <td>{{producto.nombre}}</td>
-                        <td>{{producto.precio}}</td>
-                        <td>
-                          <div id="contador" class="d-flex">
-                            <button v-on:click="disminuirUnidadesAComprar(producto)">-</button>
-                            <input type="text" :value="producto.unidadesAComprar">
-                            <button v-on:click="aumentarUnidadesAComprar(producto)">+</button>
-                          </div>
-                        </td>
+                  </tbody>
+                </table>
+              </div>
 
-                        <td>{{calcularSubtotal(producto)}}</td>
-                        <td>
-                          <button v-on:click="eliminarDeCarrito(producto)">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                              <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
-                            </svg>
-                          </button>
-                        </td>
-                      </tr>
+              <div v-else>
+                <div class="offcanvas-header">
+                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+                </div>
+                <table class="table table-hover">
+                  <h5 id="offcanvasRightLabel">Carrito</h5>
+                  <thead>
+                    <tr>
+                      <th scope="col">Nombre de producto</th>
+                      <th scope="col">Precio</th>
+                      <th scope="col">Unidades</th>
+                      <th scope="col">Subtotal</th>
+                      <th scope="col">Eliminar</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="producto in carrito">
+                      <td>{{producto.nombre}}</td>
+                      <td>{{producto.precio}}</td>
+                      <td>
+                        <div id="contador" class="d-flex">
+                          <button v-on:click="disminuirUnidadesAComprar(producto)">-</button>
+                          <input type="text" :value="producto.unidadesAComprar">
+                          <button v-on:click="aumentarUnidadesAComprar(producto)">+</button>
+                        </div>
+                      </td>
 
-                    </tbody>
-                  </table>
-                  <div class="d-flex gap-3 justify-content-center align-items-baseline">
-                    <h3>Precio Total:</h3>
-                    <p class="m-0 p-0 fs-3">{{obtenerPrecioTotal()}}</p>
-                  </div>
-                  boton de Finalizar Compra
-                  <div class="d-flex justify-content-center align-items-center mt-1">
-                    <button id="botonFinalizarCompra" class="btn  " data-bs-dismiss="offcanvas" aria-label="Close" v-on:click="finalizarCompra">Finalizar Compra</button>
-                  </div>
+                      <td>{{calcularSubtotal(producto)}}</td>
+                      <td>
+                        <button v-on:click="eliminarDeCarrito(producto)">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-trash3" viewBox="0 0 16 16">
+                            <path
+                              d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                          </svg>
+                        </button>
+                      </td>
+                    </tr>
 
+                  </tbody>
+                </table>
+                <div class="d-flex gap-3 justify-content-center align-items-baseline">
+                  <h3>Precio Total:</h3>
+                  <p class="m-0 p-0 fs-3">{{obtenerPrecioTotal()}}</p>
+                </div>
+                <div class="d-flex justify-content-center align-items-center mt-1">
+                  <button id="botonFinalizarCompra" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                    v-on:click="finalizarCompra">Finalizar Compra</button>
                 </div>
 
               </div>
+
+            </div>
           </div>
         </div>
       </div>
-    
+
     </header>
-<main>
-                <!-- Favoritos -->
-                <div v-if="productosFavoritos.length > 0">
-                  <h3 class="d-flex justify-content-center mb-2">Mis favoritos</h3>
-                <div class="d-flex justify-content-center">
-                  <div class="d-flex justify-content-between row gap-3 w-75">
-                    <div id="tarjetaFav" class="card cardFav mb-5" style="width: 282px; height: 480px" v-for="medicamento in productosFavoritos">
-                      <img v-bind:src="medicamento.imagen" class="card-img-top align-self-center pt-1" style="width: 230px; height: 230px;" alt="...">
-                      <div class="card-body d-flex justify-content-between align-items-center flex-column"  >
-        
-        
-                        <div class="producto d-flex justify-content-center align-items-center rounded" v-if="!(medicamento.stock >5)"> 
-                          Ultimas Unidades
-                        </div>
-                        <!-- <div class="productoAgotado d-flex justify-content-center align-items-center rounded"> Producto Agotado</div> -->
-        
-                        <div class="d-flex justify-content-center textoCentrado">
-                          <p  class="card-title">{{medicamento.nombre}}</p>
-                        </div>
-                        <p class="card-text">$ {{medicamento.precio}}</p>
-                        <div class="btn-group dropend">
-                          <button class="btn btn-secondary btn-sm dropdown-toggle bg-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        
-                            Ver descripcion
-                          </button>
-                          <ul class="dropdown-menu" id="descripcionProduct" style="width: 100px;"> 
-                            <li class="cart-text">{{medicamento.descripcion}}</li>
-                          </ul>
-                        </div>
-                       
-                        <div>
-                          <button id="botonQuitarFav" v-on:click="borrarDeFavoritos(medicamento, medicamentos)" v-else="medicamento.esFavorito" class="btn btn-primary  btn-sm">Quitar de favoritos</button>
-                        </div>
-        
-                        <!-- aniade producto al carrito restandole uno a su stock (en carrito!, en productos no se actuliza el stock hasta q la compra se complete) -->
-                        <div v-if="medicamento.stock > 0">
-                          <button id="botonAgregarF" class="btn btn-primary  btn-sm" v-on:click="aniadirACarrito(medicamento)" v-if="!medicamento.estadoAgregado">Agregar al carrito 🛒</button>
-                          <button id="botonAgregadoF" class="btn btn-primary btn-sm" disabled v-else>Agregado al carrito ✔</button>
-                        </div>
-                        <div v-else>
-                          <button v-else id="botonSinStockF" class="btn btn-primary btn-sm" disabled>Sin Stock</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <main>
 
-  <!-- muestra cards estaticas de compra -->
-  <h3 class="d-flex justify-content-center mb-2">Farmacia</h3>
-    <div class="d-flex justify-content-center">
-      <div class="d-flex justify-content-between row gap-3 w-75">
-        <div id="tarjetas1" class="card mb-5" style="width: 282px; height: 480px" v-for="medicamento in medicamentosFiltrados">
-          <img v-bind:src="medicamento.imagen" class="card-img-top align-self-center pt-1" style="width: 230px; height: 230px;" alt="...">
-          <div class="card-body d-flex justify-content-between align-items-center flex-column"  >
-
-
-          <div class="producto d-flex justify-content-center align-items-center rounded" v-if="!(medicamento.stock >5)"> 
-            Ultimas Unidades
-
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button  type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <img class="img" src="./images/graciasPorSuCompra.png" alt="">
+            </div>
           </div>
-          <!-- <div class="productoAgotado d-flex justify-content-center align-items-center rounded"> Producto Agotado</div> -->
-
-          <div class="d-flex justify-content-center textoCentrado">
-            <p  class="card-title">{{medicamento.nombre}}</p>
-          </div>
-          <h5  class="card-text">$ {{medicamento.precio}}</h5>
-          <div class="btn-group dropend">
-            <button id="descripcionButton" class="btn btn-secondary btn-sm dropdown-toggle bg-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-
-              Ver descripcion
-            </button>
-            <ul class="dropdown-menu" id="descripcionProduct" style="width: 100px;"> 
-              <li class="cart-text">{{medicamento.descripcion}}</li>
-            </ul>
-          </div>
-          
-          <div>
-            <button id="botonAgregar" class="btn btn-primary  btn-sm" v-on:click="agregarAFavoritos(medicamento)" v-if="!medicamento.esFavorito">Agregar a Favoritos ✩</button>
-            <button id="botonAgregado" class="btn btn-primary btn-sm" disabled v-else="medicamento.esFavorito">Agregado a favoritos ⭐</button>
-          </div>
-          <!-- aniade producto al carrito restandole uno a su stock (en carrito!, en productos no se actuliza el stock hasta q la compra se complete) -->
-          <div v-if="medicamento.stock > 0">
-            <button id="botonAgregar" class="btn btn-primary  btn-sm" v-on:click="aniadirACarrito(medicamento)" v-if="!medicamento.estadoAgregado">Agregar al carrito 🛒</button>
-            <button id="botonAgregado" class="btn btn-primary btn-sm" disabled v-else>Agregado al carrito ✔</button>
-          </div>
-          <div v-else>
-            <button v-else id="botonSinStock" class="btn btn-primary btn-sm" disabled>Sin Stock</button>
-          </div>
-
         </div>
       </div>
-    </div>
-  </div>
 
-</main>
+      <div v-if="productosFavoritos.length > 0">
+        <div class="textoAnimado">
+          <h6 class="d-flex justify-content-center mb-2">MIS FAVORITOS</h6>
+        </div>
+        <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-between row gap-3 w-75">
+            <div id="tarjetaFav" class="card cardFav mb-5" style="width: 282px; height: 480px"
+              v-for="medicamento in productosFavoritos">
+              <img v-bind:src="medicamento.imagen" class="card-img-top align-self-center pt-1"
+                style="width: 230px; height: 230px;" alt="...">
+              <div class="card-body d-flex justify-content-between align-items-center flex-column">
 
-    <a
-      href="https://www.instagram.com/mindhub_la/"
-      class="btn-wsp position-fixed d-flex align-items-center justify-content-center"
-      target="_blank"
-      ><svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="icon icon-tabler icon-tabler-brand-whatsapp"
-        width="28"
-        height="28"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="#ffffff"
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
+
+                <div class="producto d-flex justify-content-center align-items-center rounded"
+                  v-if="!(medicamento.stock >5)">
+                  Ultimas Unidades
+                </div>
+                <!-- <div class="productoAgotado d-flex justify-content-center align-items-center rounded"> Producto Agotado</div> -->
+
+                <div class="d-flex justify-content-center textoCentrado">
+                  <p class="card-title">{{medicamento.nombre}}</p>
+                </div>
+                <p class="card-text">$ {{medicamento.precio}}</p>
+                <div class="btn-group dropend">
+                  <button class="btn btn-secondary btn-sm dropdown-toggle bg-secondary" type="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+
+                    Ver descripcion
+                  </button>
+                  <ul class="dropdown-menu" id="descripcionProduct" style="width: 100px;">
+                    <li class="cart-text">{{medicamento.descripcion}}</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <button id="botonQuitarFav" v-on:click="borrarDeFavoritos(medicamento, medicamentos)"
+                    v-else="medicamento.esFavorito" class="btn btn-primary  btn-sm">Quitar de favoritos</button>
+                </div>
+
+                <!-- aniade producto al carrito restandole uno a su stock (en carrito!, en productos no se actuliza el stock hasta q la compra se complete) -->
+                <div v-if="medicamento.stock > 0">
+                  <button id="botonAgregarF" class="btn btn-primary  btn-sm" v-on:click="aniadirACarrito(medicamento)"
+                    v-if="!medicamento.estadoAgregado">Agregar al carrito 🛒</button>
+                  <button id="botonAgregadoF" class="btn btn-primary btn-sm" disabled v-else>Agregado al carrito
+                    ✔</button>
+                </div>
+                <div v-else>
+                  <button v-else id="botonSinStockF" class="btn btn-primary btn-sm" disabled>Sin Stock</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- muestra cards estaticas de compra -->
+      <div class="textoAnimado">
+        <h6 class="d-flex justify-content-center mb-2">MEDICAMENTOS</h6>
+      </div>
+      <div class="d-flex justify-content-center">
+
+        <div class="d-flex justify-content-between row gap-3 w-75">
+          <div id="tarjetas1" class="card mb-5" style="width: 302px; height: 500px"
+            v-for="medicamento in medicamentosFiltrados">
+            <img v-bind:src="medicamento.imagen" class="card-img-top align-self-center  pt-3"
+              style="width: 250px; height: 250px;" alt="...">
+
+
+            <div class="card-body d-flex justify-content-between align-items-center flex-column">
+
+
+              <div class="producto d-flex justify-content-center align-items-center rounded"
+                v-if="!(medicamento.stock >5)">
+                Ultimas Unidades
+              </div>
+              <!-- <div class="productoAgotado d-flex justify-content-center align-items-center rounded"> Producto Agotado</div> -->
+
+              <p class="card-title">{{medicamento.nombre}}</p>
+              <h5 class="card-text">$ {{medicamento.precio}}</h5>
+              <div class="btn-group dropend">
+                <button id="descripcionButton" class="btn btn-secondary btn-sm dropdown-toggle bg-secondary"
+                  type="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                  Ver descripcion
+                </button>
+                <ul class="dropdown-menu" id="descripcionProduct" style="width: 300px;">
+                  <li class="cart-text">{{medicamento.descripcion}}</li>
+                </ul>
+              </div>
+
+              <div>
+                <button id="botonAgregarFav" class="btn btn-primary  btn-sm" v-on:click="agregarAFavoritos(medicamento)"
+                  v-if="!medicamento.esFavorito">Agregar a Favoritos ✩</button>
+                <button id="botonAgregadoFav" class="btn btn-primary btn-sm" disabled
+                  v-else="medicamento.esFavorito">Agregado a favoritos ⭐</button>
+              </div>
+
+              <!-- aniade producto al carrito restandole uno a su stock (en carrito!, en productos no se actuliza el stock hasta q la compra se complete) -->
+              <div v-if="medicamento.stock > 0">
+                <button id="botonAgregar" class="btn btn-primary  btn-sm" v-on:click="aniadirACarrito(medicamento)"
+                  v-if="!medicamento.estadoAgregado">Agregar al carrito 🛒</button>
+                <button id="botonAgregado" class="btn btn-primary btn-sm" disabled v-else>Agregado al carrito ✔</button>
+              </div>
+              <div v-else>
+                <button v-else id="botonSinStock" class="btn btn-primary btn-sm" disabled>Sin Stock</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <a href="https://web.whatsapp.com/" class="btn-wsp position-fixed d-flex align-items-center justify-content-center"
+      target="_blank"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp"
+        width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+        stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
-        <path
-          d="M9 10a0.5 .5 0 0 0 1 0v-1a0.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a0.5 .5 0 0 0 0 -1h-1a0.5 .5 0 0 0 0 1"
-        /></svg>
-      </a>
-    <footer class="d-flex  flex-wrap justify-content-between align-items-start">  
-      <div class="d-flex row col-3 align-items-baseline justify-content-center">
-        <img src="./images/carita naranja.png" id="caritaPerroFooter" alt="logo franco pet shop pequeño">
-      </div>
+        <path d="M9 10a0.5 .5 0 0 0 1 0v-1a0.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a0.5 .5 0 0 0 0 -1h-1a0.5 .5 0 0 0 0 1" />
+      </svg>
+    </a>
+    <footer class="">
+      <div class="d-flex justify-content-between flex-wrap container-fluid row">
+        <div class="col-xs-12 col-lg-3">
+          <img src="./images/carita naranja.png" id="caritaPerroFooter" alt="logo franco pet shop pequeño">
+        </div>
+        <div class="d-flex flex-column  gap-3 col-lg-3">
+          <a href="./index.html" class="titulo_footer">Tienda</a>
 
-      <div class="d-flex row col-3">
-        <a href="./index.html" class="titulo_footer" >Tienda</a>
-      
-          <a href="./farmacia.html" >Farmacia</a>
+          <a href="./farmacia.html">Farmacia</a>
           <a href="./juguetes.html">Juguetes</a>
-      </div> 
-      <div class="d-flex col-3 row">
-          <a href="./contacto.html" class="titulo_footer" >Contacto</a>
-          <a href="https://www.instagram.com/mindhub_la/" target="_blank" ><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-instagram" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        </div>
+        <div class="d-flex flex-column  gap-3 col-lg-3">
+          <a href="./contacto.html" class="titulo_footer">Contacto</a>
+          <a href="https://www.instagram.com/mindhub_la/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-brand-instagram" width="28" height="28" viewBox="0 0 24 24"
+              stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <rect x="4" y="4" width="16" height="16" rx="4" />
               <circle cx="12" cy="12" r="3" />
               <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
             </svg> Instagram</a>
-          <a href="facebook.com"  target="_blank" ><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <a href="facebook.com" target="_blank"><svg xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-brand-facebook" width="28" height="28" viewBox="0 0 24 24"
+              stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
             </svg> Facebook</a>
-          <a  href="mailto:francopetshop@gmail.com"  target="_blank">
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                  <rect x="3" y="5" width="18" height="14" rx="2" />
-                  <polyline points="3 7 12 13 21 7" />
-                </svg> francopetshop@gmail.com
+          <a href="mailto:francopetshop@gmail.com" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="28" height="28"
+              viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <polyline points="3 7 12 13 21 7" />
+            </svg> francopetshop@gmail.com
           </a>
-
-      </div>
-      <div class="d-flex col-3 row">
+        </div>
+        <div class="col-3">
           <p class="titulo_footer">Donde encontrarnos</p>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.6871004429263!2d-58.43257238519495!3d-34.6120729654465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca429815227f%3A0x5d302e497c2cda87!2sR%C3%ADo%20de%20Janeiro%20300%2C%20C1405CCB%20CABA!5e0!3m2!1ses-419!2sar!4v1649964369598!5m2!1ses-419!2sar" width="150" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.6871004429263!2d-58.43257238519495!3d-34.6120729654465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca429815227f%3A0x5d302e497c2cda87!2sR%C3%ADo%20de%20Janeiro%20300%2C%20C1405CCB%20CABA!5e0!3m2!1ses-419!2sar!4v1649964369598!5m2!1ses-419!2sar"
+            width="150" height="150" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div id="divcopyrights">
+          <p class="align-self-center">Grupo Shingeki | Challenge MindHub 2022</p>
+        </div>
       </div>
-      <div class="d-flex col-12 ">
-          <p id="copy-rights" class="align-self-center">Grupo Shingeki | Challenge MindHub 2022</p>
-      </div>
-  </footer>
-    <script
-      src="https://kit.fontawesome.com/b8d6808068.js"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    </footer>
+    <script src="https://kit.fontawesome.com/b8d6808068.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@3"></script>
     <script src="./javascript/main.js"></script>
-  </body>
+</body>
+
 </html>
