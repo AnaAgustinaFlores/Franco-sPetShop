@@ -233,7 +233,7 @@ footer .titulo_footer {
   }
   @keyframes example {
     0% {
-      background-color: white;
+      background-color: #CBF3F0;
     }
   
     50% {
@@ -242,7 +242,7 @@ footer .titulo_footer {
     }
   
     100% {
-      background-color: white;
+      background-color: #CBF3F0;
     }
   }
   
