@@ -233,8 +233,7 @@
                 </div>
 
                 <div>
-                  <button id="botonQuitarFav" v-on:click="borrarDeFavoritos(medicamento, medicamentos)"
-                    v-else="medicamento.esFavorito" class="btn btn-primary  btn-sm">Quitar de favoritos</button>
+             <button class="imgFav"> <img src="./images/estrellaFavoritoActivo.png" alt="Quitar de favoritos" title="Quitar de favoritos" v-else="medicamento.esFavorito"  v-on:click="borrarDeFavoritos(medicamento, medicamentos)"></button>
                 </div>
 
                 <!-- aniade producto al carrito restandole uno a su stock (en carrito!, en productos no se actuliza el stock hasta q la compra se complete) -->
@@ -275,7 +274,7 @@
               </div>
               <!-- <div class="productoAgotado d-flex justify-content-center align-items-center rounded"> Producto Agotado</div> -->
 
-              <p class="card-title">{{medicamento.nombre}}</p>
+              <p class="card-title textoCentrado">{{medicamento.nombre}}</p>
               <h5 class="card-text">$ {{medicamento.precio}}</h5>
               <div class="btn-group dropend">
                 <button id="descripcionButton" class="btn btn-secondary btn-sm dropdown-toggle bg-secondary"
@@ -288,11 +287,15 @@
                 </ul>
               </div>
 
+       <!--        <div>
+                <button id="botonAgregarFav" class="btn btn-primary  btn-sm" v-on:click="agregarAFavoritos(medicamento)" v-if="!medicamento.esFavorito">Agregar a Favoritos ✩</button>
+                <button id="botonAgregadoFav" class="btn btn-primary btn-sm" disabled v-else="medicamento.esFavorito">Agregado a favoritos ⭐</button>
+              </div> -->
               <div>
-                <button id="botonAgregarFav" class="btn btn-primary  btn-sm" v-on:click="agregarAFavoritos(medicamento)"
-                  v-if="!medicamento.esFavorito">Agregar a Favoritos ✩</button>
-                <button id="botonAgregadoFav" class="btn btn-primary btn-sm" disabled
-                  v-else="medicamento.esFavorito">Agregado a favoritos ⭐</button>
+                <button class="imgFav">
+                  <img src="./images/estrellaFavorito.png" alt="Agregar a favoritos" title="Agregar a favoritos" v-if="!medicamento.esFavorito"  v-on:click="agregarAFavoritos(medicamento)">
+                  <img src="./images/estrellaFavoritoActivo.png" alt="Quitar de favoritos" title="Quitar de favoritos" v-else="medicamento.esFavorito"  v-on:click="borrarDeFavoritos(medicamento, medicamentos)">
+                </button>
               </div>
 
               <!-- aniade producto al carrito restandole uno a su stock (en carrito!, en productos no se actuliza el stock hasta q la compra se complete) -->

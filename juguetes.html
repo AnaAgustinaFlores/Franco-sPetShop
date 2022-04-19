@@ -208,7 +208,7 @@
                       </div>
                      
                       <div>
-                        <button id="botonQuitarFav" v-on:click="borrarDeFavoritos(juguete, juguetes)" v-else="juguete.esFavorito" class="btn btn-primary  btn-sm">Quitar de favoritos</button>
+                        <button class="imgFav"> <img src="./images/estrellaFavoritoActivo.png" alt="Quitar de favoritos" title="Quitar de favoritos" v-else="juguete.esFavorito"  v-on:click="borrarDeFavoritos(juguete, juguetes)"></button>
                       </div>
       
                       <!-- aniade producto al carrito restandole uno a su stock (en carrito!, en productos no se actuliza el stock hasta q la compra se complete) -->
@@ -262,8 +262,12 @@
                 </div>
                
                 <div>
-                  <button id="botonAgregarFav" class="btn btn-primary  btn-sm" v-on:click="agregarAFavoritos(juguete)" v-if="!juguete.esFavorito">Agregar a Favoritos ✩</button>
-                  <button id="botonAgregadoFav" class="btn btn-primary btn-sm" disabled v-else="juguete.esFavorito">Agregado a favoritos ⭐</button>
+          
+                    <button class="imgFav">
+                      <img src="./images/estrellaFavorito.png" alt="Agregar a favoritos" title="Agregar a favoritos" v-if="!juguete.esFavorito"  v-on:click="agregarAFavoritos(juguete)">
+                      <img src="./images/estrellaFavoritoActivo.png" alt="Quitar de favoritos" title="Quitar de favoritos" v-else="juguete.esFavorito"  v-on:click="borrarDeFavoritos(juguete, juguetes)">
+                    </button>
+                 
                 </div>
                 <!-- aniade producto al carrito restandole uno a su stock (en carrito!, en productos no se actuliza el stock hasta q la compra se complete) -->
                 <div v-if="juguete.stock > 0">
