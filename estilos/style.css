@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -9,10 +9,13 @@ body {
   height: 100vh;
 }
 header{
-    height:20vh;
+    min-height: 20vh;
+    min-width: 100% !important;
     background-color: #2EC4B6;
+    background-size: 100% !important;
     font-family: 'Open Sans', sans-serif;
-    
+    padding-bottom: 1rem;
+    padding-top: 1rem;
 }
 nav{
     height: 5%;
@@ -21,7 +24,7 @@ nav{
 }
 nav a:hover{
     text-decoration: none;
-    color: white;
+    color: white !important;
     transition: 0.3s;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.671);
 
@@ -37,12 +40,13 @@ main {
   font-size: 15px;
 }
 
-.card {
-  background-color: rgb(144, 12, 63);
-  color: white;
+
+.divlogopetsohop{
+  max-width: 400px;
 }
+
 footer{
-    min-height: 40vh;
+   /*  min-height: 40vh; */
     padding: 1rem 2rem;
     background-color: #2ec4b6;
 }
@@ -50,7 +54,7 @@ footer{
 footer a{
     color: black;
     text-decoration: none;
-    margin: 1rem .5rem;
+    /* margin: 1rem .5rem; */
     cursor: pointer;
 }
 
@@ -62,8 +66,8 @@ footer a:hover{
 
 }
 
-#copy-rights {
-    width: 100vw;
+#divcopyrights {
+    width: 100%;
 }
 
 footer .titulo_footer {
@@ -80,25 +84,27 @@ footer .titulo_footer {
     box-shadow: 0px 1px 10px rgb(0,0,0,0.3);
 }
 #divGeneralContacto{
-
   display: flex;
+  gap: 5vw;
 }
 #divImagenContactanos{
 
-  width: 30vw;
-  display: flex;
-  justify-content: center;
+
   padding-left: 5vw;
 }
-#formulario{
-  min-width: 65vw;
-  background-color: aqua;
-
+#divMensajeFormEnviado{
+  min-height: inherit;
+  width: inherit;
 }
-
+#formulario{
+  min-width: 50vw;
+}
+#divformulario{
+  min-height: inherit;
+}
 #tarjetas{
   background-color: #CBF3F0 !important;
-  height: 70vh !important;
+  /* height: 70vh !important; */
   color: black !important;
   
 }
@@ -115,15 +121,45 @@ footer .titulo_footer {
 #tarjetas1:hover{
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
+
+#tarjetaFav{
+  background-color: #FF9F1C;
+  color: white; 
+}
+
+#tarjetaFav:hover{
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
 #caritaPerroFooter{
 
-  height: 15vh;
-  width: 9vw;
+  max-height: 150px;
+  max-width: 90px;
 
+}
+
+#enviarFormulario{
+  border: none;
+  font-size: 2.5vh;
+  letter-spacing: .1vw;
+  padding: .2vw;
+  background-color: #FF9F1C;
+}
+
+#enviarFormulario:hover{
+  background-color: #FFBF69;
+  transition: 0.3s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.671);
 }
 
 #descripcionButton{
   background-color: #2EC4B6 !important;
+  outline: none;
+  border: none;
+}
+
+#descripcionButton:hover{
+  background-color: #2ec4b5cc !important;
 }
 
 #descripcionProduct{
@@ -132,48 +168,7 @@ footer .titulo_footer {
   
 }
 
-/* Barra de Navegacion */
-.dropbtn {
-    /* background-color: #04AA6D; */
-    color: black;
-    /* padding: 16px; */
-    font-size: 16px;
-    border: none;
-    text-decoration: none;
-    padding-left: 1vw;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #cbf3f096;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #04aa6d;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
 
 
 
@@ -190,10 +185,37 @@ footer .titulo_footer {
   background-color: #FFBF69 !important;
 }
 
-.logo{
-    height: 80px;
-    width: 80px;
+
+#boxBuscador:hover{
+  transition: 0.3s;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.671);
 }
+
+.botonBuscar{
+  border: none;
+  font-size: 2.5vh;
+  letter-spacing: .1vw;
+  padding: .2vw;
+  background-color: #FF9F1C;
+}
+#botonBuscar:hover{
+  background-color: #FFBF69;
+  transition: 0.3s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.671);
+}
+
+#inputBuscar{
+  border: none;
+  outline: none;
+  height: 4.5vh;
+}
+
+#inputBuscar:hover{
+  transition: 0.3s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.671);
+}
+
+
 #divmailcarrito{
     width: 30%;
 }
@@ -211,10 +233,7 @@ footer .titulo_footer {
 
 
 
-.logopetshop{
-    height: 100px;
-    width: 350px;
-}
+
 
 /* cartel animado de poco stock */
 .producto {
@@ -222,14 +241,14 @@ footer .titulo_footer {
   
     width: 60%;
     height: 15%;
-    animation-name: example;
+    animation-name: example; 
     animation-duration: 4s;
     animation-iteration-count: infinite;
     text-shadow: 0px 0px 2px black;
   }
   @keyframes example {
     0% {
-      background-color: white;
+      background-color: none;
     }
   
     50% {
@@ -238,7 +257,7 @@ footer .titulo_footer {
     }
   
     100% {
-      background-color: white;
+      background-color: none;
     }
   }
   
@@ -284,6 +303,50 @@ footer .titulo_footer {
   background-color: gray;
   border-color: rgba(128, 128, 128, 0.493);
  }
+
+
+/* boton agregar y boton quitar de favoritos  */ 
+#botonAgregarFav{
+  background-color:#2EC4B6;
+  border-color: #04aa6d;
+}
+#botonAgregarFav:hover {
+ background-color:#04aa6d;
+ border-color: #2EC4B6;
+}
+#botonAgregadoFav{
+  background-color:#04aa6d;
+  border-color: #2EC4B6;
+ }
+
+#botonQuitarFav{
+  background-color:red;
+  border-color: rgb(155, 52, 12);
+}
+#botonQuitarFav:hover{
+  background-color:rgb(230, 126, 66);
+  border-color: rgb(155, 52, 12);
+}
+#botonAgregarF{
+  background-color:#2EC4B6;
+  border-color: #04aa6d;
+}
+#botonAgregarF:hover {
+ background-color:#04aa6d;
+ border-color: #2EC4B6;
+}
+
+#botonAgregadoF{
+ background-color:#04aa6d;
+ border-color: #2EC4B6;
+}
+
+#botonSinStockF{
+  background-color:red;
+  border-color: #2EC4B6;
+ }
+
+
  
  /*estilo loader*/
 
@@ -393,7 +456,54 @@ footer .titulo_footer {
 }
 
 .offcanvas-end{
-  width: 50vw !important;
+  min-width: 50vw !important;
 }
 
-/* Texto animado */
+/* --------------- Texto animado ------------*/
+.textoAnimado{
+
+  width: 100%;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+}
+h6{
+    width: 100%;
+    background: linear-gradient(90deg,#CBF3F0, #2EC4B6, #FF9F1C, #FFBF69);
+    background-size: 400%;
+    background-position: -100%;
+    font-size: 5vh;
+    font-family: 'Secular One', sans-serif;
+    letter-spacing: 0.75vw;
+    font-weight: 100;
+    word-spacing: 3vw;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate 4s linear infinite;
+    text-align: center;
+}
+
+#tarjetitas{
+  width: 100%;
+}
+
+@keyframes animate{
+  0%{
+    background-position: 0;
+  }
+  100%{
+    background-position: 400;
+  }
+}
+
+.textoCentrado{
+  text-align: center;
+}
+
+
+.modal-body , .modal-header{
+  background-color: #CBF3F0;
+}
